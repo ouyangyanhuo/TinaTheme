@@ -1,7 +1,7 @@
 <footer class="footer flex">
     <section class="container">
         <nav class="footer-links">
-            <p><center>Copyright © 2021 Magneto<br>Theme <a href="https://www.symbk.cn" target="">SmileTheme</a> By Magneto</center></p>
+            <p><center>Copyright © 2021 Magneto<br>Theme <a href="https://www.symbk.cn" target="_blank">SmileTheme</a> By Magneto</center></p>
         </nav>
             <?php if ($this->options->FooterHTML): ?>
             <?php $this->options->FooterHTML() ?>

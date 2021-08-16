@@ -1,4 +1,4 @@
-## SmileTheme介绍
+## SmileTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上
 
@@ -9,17 +9,55 @@
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=Instagram)
 ![Forks](https://img.shields.io/github/forks/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=facebook)
 
-## 更新日志
+原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
- 1. 发布主题
+## 最近版本更新日志
+
+  1.修改开源协议（GPL V3.0）
+  
+  2.修复首页版权链接指向问题
+  
+  3.完善了 `README.md` 文档
  
-## 编程语言
+## 功能与特性
+- 简洁风格
 
-PHP
+- 适配黑暗模式
 
-## 使用须知
+- HTML 原生自响应式布局
 
-请查看DOC
+- 超轻量
+
+- 高度自定义
+
+- 完善的后台设置系统
+
+欢迎提 Issues 和 PRs，欢迎提出建议
+
+## 使用
+下载主题包并解压 ( 若是从 GitHub 或 Gitee 下载，请把解压出来的文件夹改名为 `SmileTheme` ) ，将文件夹上传至网站文件主题目录 ( `/usr/theme` ) 下，进入网站后台 - 控制台 - 外观 - 启用主题即可。
+
+## 文档
+
+SmileTheme 文档 : [https://smiletheme.docs.symbk.cn](https://smiletheme.docs.symbk.cn)
+
+## Demo
+
+主题效果预览
+
+SmileTheme主题演示站：[https://smiletheme.symbk.cn](https://smiletheme.symbk.cn)
+
+##注意
+
+SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
+
+您必须在页脚保留 SmileTheme 主题的名称及其指向链接，否则请不要使用 SmileTheme 主题。
+
+您可以删除页脚的作者版权信息，但是不能删除 SmileTheme 主题的名称及其指向链接。
+
+## 捐赠
+
+如果您很喜欢这个主题，不妨[捐赠](https://www.verypoor.cn)一下我，这样有助于我更高效的开发
 
 ## 下载渠道
 
@@ -27,4 +65,9 @@ PHP
 
 2.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
 
-## 使用截图
+## 预览图
+![](https://i.loli.net/2021/08/16/nmvW5uVKHChafsd.png)
+![](https://i.loli.net/2021/08/16/sARYjilgO9MF2H1.png)
+![](https://i.loli.net/2021/08/16/rcXL5KjbueZ6zQp.png)
+![](https://i.loli.net/2021/08/16/wLxGjiPm6pZoyBt.png)
+![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
