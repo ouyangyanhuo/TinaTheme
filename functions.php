@@ -60,9 +60,26 @@ function themeConfig($form) {
         ),
         1,
         _t('全局评论'),
-        _t('关闭后全部文章不提供评论区，当前评论系统不支持夜间模式，但仍可以选择开启。')
+        _t('关闭后全部文章不提供评论区。')
     );
     $form->addInput($TheComments);
+    
+    /* 深色模式 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">深色模式 <small>Dark Mode</small></h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $The_Dark_Mode = new Typecho_Widget_Helper_Form_Element_Radio(
+        'The_Dark_Mode',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('深色模式'),
+        _t('如果你不喜欢深色模式，或者认为深色模式有瑕疵你可以选择关闭深色模式的开关。<br>关闭此开关后，性能将会得到一定程度的提升。')
+    );
+    $form->addInput($The_Dark_Mode);
     
 	/* 图标 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">图标 <small>Icon</small></h2>'));
@@ -124,7 +141,7 @@ function themeConfig($form) {
         ),
         true,
         _t('第一个项目'),
-        _t('开启后可在首页见到第一个项目推荐，<strong><font color="#ed5a65">注意:倘若开启，务必将以下四项内容填完，否则会出现UI错误</font></strong><br>若想要显示，请首先开启项目推荐')
+        _t('开启后可在首页见到第一个项目推荐，若想要显示，请首先开启项目推荐')
     );
     $form->addInput($Project_1);
 	$Project_1_Name = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Name', NULL, 'SmileTheme', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的名称'), _t(''));
@@ -144,7 +161,7 @@ function themeConfig($form) {
         ),
         false,
         _t('第二个项目'),
-        _t('开启后可在首页见到第二个项目推荐，<strong><font color="#ed5a65">注意:倘若开启，务必将以下四项内容填完，否则会出现UI错误</font></strong><br>若想要显示，请首先开启项目推荐')
+        _t('开启后可在首页见到第二个项目推荐，若想要显示，请首先开启项目推荐')
     );
     $form->addInput($Project_2);
 	$Project_2_Name = new Typecho_Widget_Helper_Form_Element_Text('Project_2_Name', NULL, NULL, _t('<strong><font color="#ed5a65">第二个</font></strong>项目的名称'), _t(''));
