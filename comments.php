@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php $this->options->themeUrl('/main/comments.all.css'); ?>">
+<link rel="stylesheet" href="<?php $this->options->themeUrl('/main/comments.min.css'); ?>">
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div id="comments">
     <?php $this->comments()->to($comments); ?>

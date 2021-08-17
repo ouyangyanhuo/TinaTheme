@@ -15,7 +15,7 @@
     <?php if ($this->options->favicon): ?>
     <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
     <?php endif; ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/main/main.all.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/main/main.min.css'); ?>">
     <?php $this->header(); ?>
 </head>
 <body class="dark">
