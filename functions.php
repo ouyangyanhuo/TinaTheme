@@ -2,6 +2,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 define('INITIAL_VERSION_NUMBER', '1.0');
 if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper::options()->GravatarUrl);
+require_once __DIR__ . '/core/functions.php';
 function themeConfig($form) {
     
     /* favicon */
@@ -80,6 +81,22 @@ function themeConfig($form) {
         _t('如果你不喜欢深色模式，或者认为深色模式有瑕疵你可以选择关闭深色模式的开关。<br>关闭此开关后，性能将会得到一定程度的提升。')
     );
     $form->addInput($The_Dark_Mode);
+    
+    /* 代码压缩 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">代码压缩</h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+	$compressHtml = new Typecho_Widget_Helper_Form_Element_Radio(
+        'compressHtml',
+        array(
+            1 => _t('启用'),
+            0 => _t('关闭')
+        ),
+        0,
+        _t('HTML压缩'),
+        _t('默认关闭，启用则会对HTML代码进行压缩，可能与部分插件存在兼容问题，请酌情选择开启或者关闭')
+    );
+    $form->addInput($compressHtml);
     
 	/* 图标 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">图标 <small>Icon</small></h2>'));

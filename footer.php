@@ -1,3 +1,4 @@
+</body>
 <footer class="footer flex">
     <section class="container">
         <nav class="footer-links">
@@ -11,3 +12,12 @@
     <script async="" src="<?php $this->options->themeUrl('/main/features.js'); ?>" data-enable-footnotes="true"></script>
     <?php endif; ?>
 </footer>
+</html>
+<?php /* 来自 MDr | HTML 压缩 */
+if ($this->options->compressHtml) {
+    $html_source = ob_get_contents();
+    ob_clean();
+    print compressHtml($html_source);
+    ob_end_flush();
+}
+?>

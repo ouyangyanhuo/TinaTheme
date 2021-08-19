@@ -20,7 +20,7 @@
                     </div>
                 </header>
             </article>
-            <div class="article-post">
+            <div id="post" class="article-post">
                 <?php $this->content(); ?>
             </div>
         </div>
