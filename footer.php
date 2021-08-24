@@ -9,7 +9,7 @@
             <?php endif; ?>
     </section>
     <?php if ($this->options->The_Dark_Mode): ?>
-    <script async="" src="<?php $this->options->themeUrl('/main/features.js'); ?>" data-enable-footnotes="true"></script>
+    <script async="" src="<?php $this->options->themeUrl('/assets/features.js'); ?>" data-enable-footnotes="true"></script>
     <?php endif; ?>
 </footer>
 </html>

@@ -4,7 +4,7 @@
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2
+ * @version 1.2.1
  * @link https://www.symbk.cn
  */
 

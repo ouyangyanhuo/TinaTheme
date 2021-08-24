@@ -10,9 +10,30 @@ function themeConfig($form) {
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
-    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/SmileTheme/main/favicon.ico', _t('Favicon 地址'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/SmileTheme/main/favicon.ico'));
+    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('Favicon 地址'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/SmileTheme/assets/favicon.ico'));
 	$form->addInput($favicon);
 	
+	 /* SEO */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">SEO</h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $SEOOPEN = new Typecho_Widget_Helper_Form_Element_Radio(
+        'SEOOPEN',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('SEO系统'),
+        _t('关闭后网站SEO将会关闭(本SEO系统，采用Typecho原生SEO，默认开启)')
+    );
+    $form->addInput($SEOOPEN);
+	/* SEO说明 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('网站关键词、网站描述均调用自系统，修改请前往路径“后台->基本设置->网站关键词 或 网站描述”'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
 	/* Articles */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">Articles</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -81,22 +102,6 @@ function themeConfig($form) {
         _t('如果你不喜欢深色模式，或者认为深色模式有瑕疵你可以选择关闭深色模式的开关。<br>关闭此开关后，性能将会得到一定程度的提升。')
     );
     $form->addInput($The_Dark_Mode);
-    
-    /* 代码压缩 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">代码压缩</h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-	$compressHtml = new Typecho_Widget_Helper_Form_Element_Radio(
-        'compressHtml',
-        array(
-            1 => _t('启用'),
-            0 => _t('关闭')
-        ),
-        0,
-        _t('HTML压缩'),
-        _t('默认关闭，启用则会对HTML代码进行压缩，可能与部分插件存在兼容问题，请酌情选择开启或者关闭')
-    );
-    $form->addInput($compressHtml);
     
 	/* 图标 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">图标 <small>Icon</small></h2>'));
@@ -167,7 +172,7 @@ function themeConfig($form) {
 	$form->addInput($Project_1_URL);
 	$Project_1_Describe = new Typecho_Widget_Helper_Form_Element_Textarea('Project_1_Describe', NULL, 'A theme for Typecho', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的描述'), _t('这里写第一个项目的描述内容，不推荐超过50字，不填则代表留空'));
 	$form->addInput($Project_1_Describe);
-	$Project_1_Icon = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Icon', NULL, '/usr/themes/SmileTheme/main/favicon.ico', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的图标'), _t('这里填入第一个项目的图标的链接，由于未知原因，暂不支持Emoji、Windows表情，若有需要请修改本地代码'));
+	$Project_1_Icon = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Icon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的图标'), _t('这里填入第一个项目的图标的链接，由于未知原因，暂不支持Emoji、Windows表情，若有需要请修改本地代码'));
 	$form->addInput($Project_1_Icon);
 	
 	$Project_2 = new Typecho_Widget_Helper_Form_Element_Radio(
@@ -189,4 +194,16 @@ function themeConfig($form) {
 	$form->addInput($Project_2_Describe);
 	$Project_2_Icon = new Typecho_Widget_Helper_Form_Element_Text('Project_2_Icon', NULL, NULL, _t('<strong><font color="#ed5a65">第二个</font></strong>项目的图标'), _t('这里填入第二个项目的图标的链接，由于未知原因，暂不支持Emoji、Windows表情，若有需要请修改本地代码'));
 	$form->addInput($Project_2_Icon);
+	
+	$compressHtml = new Typecho_Widget_Helper_Form_Element_Radio(
+        'compressHtml',
+        array(
+            1 => _t('启用'),
+            0 => _t('关闭')
+        ),
+        0,
+        _t('HTML压缩'),
+        _t('默认关闭，启用则会对HTML代码进行压缩，可能与部分插件存在兼容问题，请酌情选择开启或者关闭')
+    );
+    $form->addInput($compressHtml);
 }

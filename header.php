@@ -15,8 +15,16 @@
     <?php if ($this->options->favicon): ?>
     <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
     <?php endif; ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/main/main.min.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/main.min.css'); ?>">
+    <?php if ($this->is('index')): ?>
+    <?php if ($this->options->SEOOPEN): ?>
     <?php $this->header(); ?>
+    <?php endif; ?>
+    <?php else: ?>
+    <?php if ($this->options->SEOOPEN): ?>
+    <?php $this->header('xmlrpc=&wlw=&commentReply=&antiSpam=&atom'); ?>
+    <?php endif; ?>
+    <?php endif; ?>
 </head>
 <body class="dark">
     <nav class="navbar">
