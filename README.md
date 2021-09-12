@@ -44,7 +44,7 @@ SmileTheme 文档 : [https://smiletheme.docs.symbk.cn](https://smiletheme.docs.s
 
 SmileTheme主题演示站：[https://smiletheme.symbk.cn](https://smiletheme.symbk.cn)
 
-##注意
+## 注意
 
 SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
 
