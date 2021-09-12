@@ -5,14 +5,29 @@ if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper
 require_once __DIR__ . '/core/functions.php';
 function themeConfig($form) {
     
-    /* favicon */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">网站Favicon</h2>'));
+    /* 外观 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">基础外观</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
-    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('Favicon 地址'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/SmileTheme/assets/favicon.ico'));
+    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('Favicon 图标'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/SmileTheme/assets/favicon.ico'));
 	$form->addInput($favicon);
 	
+	$articles = new Typecho_Widget_Helper_Form_Element_Text('articles', NULL, '/index.php/articles.html', _t('Articles URL'), _t('首页全部文章按钮<a href="https://z3.ax1x.com/2021/08/15/fcasqf.png" target="_blank">[查看示例图片]</a>指向的链接，需要创建Articles的自定义页面，并在此填入自定义页面的URL才可正常使用，不填则不显示，<strong><font color="#525288">强烈推荐开启</font></strong>，因为首页不支持文章翻页，一次仅能浏览有限数量文章。'));
+    $form->addInput($articles);
+	
+	$cursor = new Typecho_Widget_Helper_Form_Element_Radio(
+        'cursor',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        0,
+        _t('鼠标美化'),
+        _t('开启后电脑端网页会对鼠标进行美化，默认关闭)')
+    );
+    $form->addInput($cursor);
+    
 	 /* SEO */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">SEO</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -33,14 +48,6 @@ function themeConfig($form) {
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('网站关键词、网站描述均调用自系统，修改请前往路径“后台->基本设置->网站关键词 或 网站描述”'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
-    
-	/* Articles */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">Articles</h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-	$articles = new Typecho_Widget_Helper_Form_Element_Text('articles', NULL, '/index.php/articles.html', _t('Articles URL'), _t('首页全部文章按钮<a href="https://z3.ax1x.com/2021/08/15/fcasqf.png" target="_blank">[查看示例图片]</a>指向的链接，需要创建Articles的自定义页面，并在此填入自定义页面的URL才可正常使用，不填则不显示，<strong><font color="#525288">强烈推荐开启</font></strong>，因为首页不支持文章翻页，一次仅能浏览有限数量文章。'));
-    $form->addInput($articles);
     
     /* Link */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">Link</h2>'));

@@ -3,7 +3,7 @@
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge&logo=github)](https://www.symbk.cn/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.1-critical?style=for-the-badge&logo=gitee)
+![Version](https://img.shields.io/badge/Version-1.2.2-critical?style=for-the-badge&logo=gitee)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=twitter)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=Instagram)
@@ -13,13 +13,10 @@
 
 ## 最近版本更新日志
 
-  1.✨新增了SEO相关功能。
-  
-  2.优化了代码构成。
-  
-  3.优化了代码压缩功能。
+- ✨新增鼠标美化。
  
 ## 功能与特性
+
 - 简洁风格
 
 - 适配深色模式
