@@ -15,7 +15,10 @@
     <?php if ($this->options->favicon): ?>
     <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
     <?php endif; ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/main.min.css'); ?>">
+    <?php if ($this->options->cursor): ?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/cursor.main.css'); ?>">
+    <?php endif; ?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/main.main.css'); ?>">
     <?php if ($this->is('index')): ?>
     <?php if ($this->options->SEOOPEN): ?>
     <?php $this->header(); ?>

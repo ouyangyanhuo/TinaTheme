@@ -1,4 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+
 function compressHtml($html_source)
 {
     $chunks = preg_split('/(<!--<nocompress>-->.*?<!--<\/nocompress>-->|<nocompress>.*?<\/nocompress>|<pre.*?\/pre>|<textarea.*?\/textarea>|<script.*?\/script>)/msi', $html_source, -1, PREG_SPLIT_DELIM_CAPTURE);

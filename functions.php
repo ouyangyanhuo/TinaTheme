@@ -3,10 +3,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 define('INITIAL_VERSION_NUMBER', '1.0');
 if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper::options()->GravatarUrl);
 require_once __DIR__ . '/core/functions.php';
+
 function themeConfig($form) {
     
     /* 外观 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">基础外观</h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -29,7 +30,7 @@ function themeConfig($form) {
     $form->addInput($cursor);
     
 	 /* SEO */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">SEO</h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>SEO</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -50,7 +51,7 @@ function themeConfig($form) {
     $form->addInput($TheNotice);
     
     /* Link */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">Link</h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -61,7 +62,7 @@ function themeConfig($form) {
     $form->addInput($alink_name);
     
      /* Notice */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">网站公告 <small>Notice</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站公告 <small>Notice</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -69,7 +70,7 @@ function themeConfig($form) {
     $form->addInput($Notice);
     
     /* Footer */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">页脚 <small>Notice</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>页脚 <small>Notice</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -77,7 +78,7 @@ function themeConfig($form) {
     $form->addInput($FooterHTML);
     
     /* 评论 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">评论 <small>Comments</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>评论 <small>Comments</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -94,7 +95,7 @@ function themeConfig($form) {
     $form->addInput($TheComments);
     
     /* 深色模式 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">深色模式 <small>Dark Mode</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>深色模式 <small>Dark Mode</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -111,7 +112,7 @@ function themeConfig($form) {
     $form->addInput($The_Dark_Mode);
     
 	/* 图标 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">图标 <small>Icon</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>图标 <small>Icon</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
@@ -146,7 +147,7 @@ function themeConfig($form) {
 	$form->addInput($icon_3_URL);
 	
 	/* 项目推荐 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2 id="mdr-nav">项目推荐 <small>Projects</small></h2>'));
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>项目推荐 <small>Projects</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
