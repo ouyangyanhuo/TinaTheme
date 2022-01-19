@@ -4,7 +4,7 @@
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2.3
+ * @version 1.2.4
  * @link https://www.symbk.cn
  */
 
@@ -31,7 +31,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <?php endif; ?>
     </section>
     </div>
-
  <div class="container">
      <section>
          <h2>Latest Articles<?php if ($this->options->articles): ?><a class=section-button href="<?php $this->options->articles() ?>">View all</a><?php else: ?><?php endif; ?></h2>

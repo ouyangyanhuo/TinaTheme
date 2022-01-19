@@ -1,4 +1,44 @@
-<link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/comments.min.css'); ?>">
+<?php function threadedComments($comments, $options) {
+    $commentClass = '';
+    if ($comments->authorId) {
+        if ($comments->authorId == $comments->ownerId) {
+            $commentClass .= ' comment-by-author';
+        } else {
+            $commentClass .= ' comment-by-user';
+        }
+    } 
+    $commentLevelClass = $comments->_levels > 0 ? ' comment-child' : ' comment-parent';
+?>
+ 
+<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
+if ($comments->levels > 0) {
+    echo ' comment-child';
+    $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
+} else {
+    echo ' comment-parent';
+}
+$comments->alt(' comment-odd', ' comment-even');
+echo $commentClass;
+?>">
+    <div id="<?php $comments->theId(); ?>">
+        <div class="comment-author">
+            <?php $comments->gravatar('40', ''); ?>
+            <cite class="fn"><?php $comments->author(); ?></cite>
+        </div>
+        <div class="comment-meta">
+            <span class="date"><?php $comments->date('M j, Y'); ?></span>
+            <span class="comment-reply"><?php $comments->reply(); ?></span>
+        </div>
+        <?php $comments->content(); ?>
+    </div>
+<?php if ($comments->children) { ?>
+    <div class="comment-children box">
+        <?php $comments->threadedComments($options); ?>
+    </div>
+<?php } ?>
+</li>
+
+<?php } ?>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
@@ -25,13 +65,21 @@
     			<input type="text" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
     		</p>
             <?php endif; ?>
+            <?php if ($this->options->TheVerification): ?>
+            <p>
+                <?php spam_protection_math();?>
+            </p>
+            <?php endif; ?>
     		<p>
                 <label for="textarea" class="required"><?php _e('内容'); ?></label>
                 <textarea rows="8" cols="50" name="text" id="comment" class="textarea" required ><?php $this->remember('text'); ?></textarea>
             </p>
     		<p>
                 <button type="submit" id="submit" class="submit"><?php _e('提交评论'); ?></button>
+                <button type="reset" id="submit" class="submit"><?php _e('清空内容'); ?></button>
             </p>
+            <?php $security = $this->widget('Widget_Security'); ?>
+            <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
     	</form>
     </div>
     <?php if ($comments->have()): ?>

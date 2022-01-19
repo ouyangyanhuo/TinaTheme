@@ -21,8 +21,12 @@
     </div>
     <?php if ($this->options->TheComments): ?>
         <div class="container">
-        <?php $this->need('comments.php'); ?>
+            <?php $this->need('comments.php'); ?>
         </div>
-    <?php endif; ?>
+        <?php else: ?>
+        <div class="container">
+            <div class="alert info">已关闭全局评论。</div>
+        </div>
+        <?php endif; ?>
 </main>
 <?php $this->need('footer.php'); ?>

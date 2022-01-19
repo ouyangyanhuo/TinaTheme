@@ -5,7 +5,6 @@ if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper
 require_once __DIR__ . '/core/functions.php';
 
 function themeConfig($form) {
-    
     /* 外观 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -61,22 +60,6 @@ function themeConfig($form) {
     $alink_name = new Typecho_Widget_Helper_Form_Element_Text('alink_name', NULL, NULL, _t('顶部按钮名称'), _t('在Articles按钮旁边出现的按钮的文字，可以用做友链等内容，不填则代表不显示文字，若上一项已填，不建议不填文字。'));
     $form->addInput($alink_name);
     
-     /* Notice */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站公告 <small>Notice</small></h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-    $Notice = new Typecho_Widget_Helper_Form_Element_Textarea('Notice', NULL, NULL, _t('网站首页公告'), _t('支持HTML语法，但不建议使用HTML语法。不填则代表为默认内容。'));
-    $form->addInput($Notice);
-    
-    /* Footer */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>页脚 <small>Notice</small></h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-    $FooterHTML = new Typecho_Widget_Helper_Form_Element_Textarea('FooterHTML', NULL, NULL, _t('自定义页脚内容'), _t('支持HTML语法。不填则代表为空。'));
-    $form->addInput($FooterHTML);
-    
     /* 评论 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>评论 <small>Comments</small></h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -93,6 +76,35 @@ function themeConfig($form) {
         _t('关闭后全部文章不提供评论区。')
     );
     $form->addInput($TheComments);
+    
+    $TheVerification = new Typecho_Widget_Helper_Form_Element_Radio(
+        'TheVerification',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('评论验证'),
+        _t('评论区的加减法验证系统，关闭后反垃圾评论效果降低。')
+    );
+    $form->addInput($TheVerification);
+    
+    
+     /* Notice */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站公告 <small>Notice</small></h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $Notice = new Typecho_Widget_Helper_Form_Element_Textarea('Notice', NULL, NULL, _t('网站首页公告'), _t('支持HTML语法，但不建议使用HTML语法。不填则代表为默认内容。'));
+    $form->addInput($Notice);
+    
+    /* Footer */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>页脚 <small>Notice</small></h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $FooterHTML = new Typecho_Widget_Helper_Form_Element_Textarea('FooterHTML', NULL, NULL, _t('自定义页脚内容'), _t('支持HTML语法。不填则代表为空。'));
+    $form->addInput($FooterHTML);
     
     /* 深色模式 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>深色模式 <small>Dark Mode</small></h2>'));
@@ -214,4 +226,47 @@ function themeConfig($form) {
         _t('默认关闭，启用则会对HTML代码进行压缩，可能与部分插件存在兼容问题，请酌情选择开启或者关闭')
     );
     $form->addInput($compressHtml);
+}
+class Widget_Post_hot extends Widget_Abstract_Contents
+{
+    public function __construct($request, $response, $params = NULL)
+    {
+        parent::__construct($request, $response, $params);
+        $this->parameter->setDefault(array('pageSize' => $this->options->commentsListSize, 'parentId' => 0, 'ignoreAuthor' => false));
+    }
+    public function execute()
+    {
+        $select  = $this->select()->from('table.contents')
+            ->where("table.contents.password IS NULL OR table.contents.password = ''")
+            ->where('table.contents.status = ?', 'publish')
+            ->where('table.contents.created <= ?', time())
+            ->where('table.contents.type = ?', 'post')
+            ->limit($this->parameter->pageSize)
+            ->order('table.contents.views', Typecho_Db::SORT_DESC);
+        $this->db->fetchAll($select, array($this, 'push'));
+    }
+}
+function themeInit($comment){
+$comment = spam_protection_pre($comment, $post, $result);
+}
+function spam_protection_math(){
+    $num1=rand(1,100);
+    $num2=rand(1,100);
+    echo "<label class=\"required\">请输入 <code>$num1</code> + <code>$num2</code> 的计算结果：</label>";
+    echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" placeholder=\"验证码\">\n";
+    echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
+    echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
+}
+function spam_protection_pre($comment, $post, $result){
+    $sum=$_POST['sum'];
+    switch($sum){
+        case $_POST['num1']+$_POST['num2']:
+        break;
+        case null:
+        throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败'));
+        break;
+        default:
+        throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败'));
+    }
+    return $comment;
 }
