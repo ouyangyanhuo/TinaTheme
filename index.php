@@ -1,10 +1,10 @@
 <?php
 /**
- * 移植自<a href="https://limxw.com/" target="_blank">WingLim</a>的<a href="https://github.com/WingLim/hugo-tania" target="_blank">hugo-tania</a>主题。
+ * 移植自<a href="https://limxw.com/" target="_blank">WingLim</a>的<a href="https://github.com/WingLim/hugo-tania" target="_blank">hugo-tania</a>主题，在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2.4
+ * @version 1.2.5
  * @link https://www.symbk.cn
  */
 

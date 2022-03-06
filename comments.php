@@ -28,7 +28,7 @@ echo $commentClass;
         <div class="comment-meta">
             <span class="date"><?php $comments->date('M j, Y'); ?></span>
             <span class="comment-reply"><?php $comments->reply(); ?></span>
-	    <?php if ($comments->status == 'waiting') { ?>
+            <?php if ($comments->status == 'waiting') { ?>
                 <span class="comment-reply">您的评论正等待审核！</span>
             <?php } ?>
         </div>

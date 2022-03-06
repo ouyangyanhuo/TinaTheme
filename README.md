@@ -1,9 +1,9 @@
 ## SmileTheme
 
-一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上
+一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
 
-[![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge&logo=github)](https://www.symbk.cn/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.4-critical?style=for-the-badge&logo=gitee)
+[![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/523/)
+![Version](https://img.shields.io/badge/Version-1.2.5-critical?style=for-the-badge&logo=gitee)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=twitter)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=Instagram)
@@ -13,12 +13,13 @@
 
 ## 最近版本更新日志
 
-- ✨重构评论系统
-- ✨新增热门文章页面
-- ✨新增评论区验证系统
-- 优化评论区体验
-- 优化主题样式
-- 优化鼠标美化
+- ✨新增图片灯箱功能
+- ✨新增短代码-mark标记功能
+- ✨新增短代码-提示功能
+- ✨新增友链页面自动化
+- 优化评论区夜间模式
+- 删除all.css内容，全部更换为压缩后的css
+- 缩小了主题体积
 
 ## 功能与特性
 
@@ -41,13 +42,13 @@
 
 ## 文档
 
-SmileTheme 文档 : [https://smiletheme.docs.symbk.cn](https://smiletheme.docs.symbk.cn)
+SmileTheme 文档 : [https://smiletheme.docs.fmcf.cc](https://smiletheme.docs.fmcf.cc)
 
 ## Demo
 
 主题效果预览
 
-SmileTheme主题演示站：[https://smiletheme.symbk.cn](https://smiletheme.symbk.cn)
+SmileTheme主题演示站：[https://smiletheme.fmcf.cc](https://smiletheme.fmcf.cc)
 
 ## 注意
 

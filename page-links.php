@@ -10,13 +10,33 @@
 <main>
     <header>
         <div class="container">
-            <h1>友链</h1>
-            <p class="subtitle">这里是<span class="count">友情链接</span></p>
+            <h1><?php $this->archiveTitle(array(
+            'category'  =>  _t('分类 %s 下的文章'),
+            'search'    =>  _t('包含关键字 %s 的文章'),
+            'tag'       =>  _t('标签 %s 下的文章'),
+            'author'    =>  _t('%s 发布的文章')
+            ), ''); ?>
+            </h1>
+            <p class="subtitle">这是一个<span class="count">友链</span>页面</p>
         </div>
     </header>
     <div class="container">
         <div class="article-post">
-            <?php $this->content(); ?>
+            <?php if ($this->options->fancybox): ?>
+            <?php
+                $pattern = '/\<img.*?src\=\"(.*?)\".*?alt\=\"(.*?)\".*?title\=\"(.*?)\"[^>]*>/i';
+                $replacement = '<a href="$1" data-fancybox="gallery" /><img src="$1" alt="$2" title="$3"></a>';
+                $content = preg_replace($pattern, $replacement, $this->content);
+                //内容截断
+                $array=explode('<!--more-->', $content);
+                $content=$array[0];
+                echo getContentTest($this->content);
+            ?>
+            <?php else: ?>
+            <?php echo getContentTest($this->content); ?>
+            <?php endif; ?>
+            <h4>以下是链接</h4>
+            <?php Links(); ?>
         </div>
     </div>
     <?php if ($this->options->TheComments): ?>
