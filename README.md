@@ -3,7 +3,7 @@
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.5-critical?style=for-the-badge&logo=gitee)
+![Version](https://img.shields.io/badge/Version-1.2.6-critical?style=for-the-badge&logo=gitee)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=twitter)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=Instagram)
