@@ -4,7 +4,7 @@
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/523/)
 ![Version](https://img.shields.io/badge/Version-1.2.6-critical?style=for-the-badge&logo=gitee)
-![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=google)
+![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=twitter)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=Instagram)
 ![Forks](https://img.shields.io/github/forks/ouyangyanhuo/SmileTheme?style=for-the-badge&logo=facebook)
