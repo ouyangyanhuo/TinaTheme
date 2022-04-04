@@ -12,6 +12,9 @@
                                 <a>By <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a></a> | 
                                 <time><?php $this->date('M j, Y'); ?></time> |
                                 <a><?php _e('Category: '); ?><?php $this->category(','); ?></a>
+                                <?php if ($this->options->WordCount): ?>
+                                <time> | 共 <?php echo word_count($this->cid); ?> 个字符</time>
+                                <?php endif; ?>
                                 </div>
                                 <div class="tags">
                                     <?php $this->tags(', ', true, '<a>NoTag</a>'); ?>
@@ -29,7 +32,7 @@
                 //内容截断
                 $array=explode('<!--more-->', $content);
                 $content=$array[0];
-                echo getContentTest($this->content);
+                echo getContentTest($content)
             ?>
             <?php else: ?>
             <?php echo getContentTest($this->content); ?>

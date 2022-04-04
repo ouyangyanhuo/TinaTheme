@@ -4,8 +4,8 @@
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2.5
- * @link https://www.symbk.cn
+ * @version 1.2.6
+ * @link https://www.fmcf.cc
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
@@ -60,7 +60,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <a href="#" target="_blank" rel="noreferrer">
                     <?php endif; ?>
                     <?php if ($this->options->Project_1_Icon): ?>
-                        <div class="icon"><img src="<?php $this->options->Project_1_Icon() ?>" height="30px" width="30px"></div>
+                        <div class="icon">🚀</div>
                     <?php else: ?>
                         <div class="icon"></div>
                     <?php endif; ?>
@@ -90,7 +90,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <a href="#" target="_blank" rel="noreferrer">
                     <?php endif; ?>
                     <?php if ($this->options->Project_2_Icon): ?>
-                        <div class="icon"><img src="<?php $this->options->Project_2_Icon() ?>" height="30px" width="30px"></div>
+                        <div class="icon">🌈</div>
                     <?php else: ?>
                         <div class="icon"></div>
                     <?php endif; ?>

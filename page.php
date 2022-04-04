@@ -11,6 +11,9 @@
                             <div>
                             <a>By <?php $this->author(); ?></a> | 
                             <time><?php $this->date('M j, Y'); ?></time>
+                            <?php if ($this->options->WordCount): ?>
+                            <a> | 共 <?php echo word_count($this->cid); ?> 个字符</a>
+                            <?php endif; ?>
                             </div>
                         </div>
                     </div>

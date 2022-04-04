@@ -9,6 +9,9 @@
     </header>
     <section>
         <div class="container">
+            <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
+            <input id="search-query" type="text" id="s" name="s" class="text"  placeholder="Search for anything...">
+            </form>
             <section>
                 <section>
                     <div class="posts">

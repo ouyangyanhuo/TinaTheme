@@ -36,8 +36,13 @@
             <?php echo getContentTest($this->content); ?>
             <?php endif; ?>
             <h4>以下是链接</h4>
-            <?php Links(); ?>
+            
         </div>
+            <div class="linkpage">
+                <ul id="friendsList">
+                  <?php Links(); ?>
+                </ul>
+            </div>
     </div>
     <?php if ($this->options->TheComments): ?>
         <div class="container">

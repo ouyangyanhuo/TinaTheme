@@ -69,6 +69,18 @@ function themeConfig($form) {
     );
     $form->addInput($SEOOPEN);
     
+    $WordCount = new Typecho_Widget_Helper_Form_Element_Radio(
+        'WordCount',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('字数统计'),
+        _t('在网站的文章页面及自建页面中显示内容总字数')
+    );
+    $form->addInput($WordCount);
+    
     /* Link */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -292,5 +304,24 @@ function getContentTest($content) {
     $pattern = '/\[(info)\](.*?)\[\s*\/\1\s*\]/';
     $replacement = '<div class="alert info">$2</div>';
     $content = preg_replace($pattern, $replacement, $content);
+    /* Keybord */
+    $pattern = '/\[(kbd)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<kbd>$2</kbd>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 上标 */
+    $pattern = '/\[(sup)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<sup>$2</sup>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 下标 */
+    $pattern = '/\[(sub)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<sub>$2</sub>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 返回值 */
     return $content;
+}
+/* 字数统计 */
+function word_count($cid){
+	$db = Typecho_Db::get ();
+	$rs = $db->fetchRow($db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?',$cid)->order ('table.contents.cid',Typecho_Db::SORT_ASC)->limit (1));
+	return mb_strlen($rs['text'], 'UTF-8');
 }
