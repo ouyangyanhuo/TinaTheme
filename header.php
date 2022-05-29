@@ -37,6 +37,7 @@
     <?php endif; ?>
 </head>
 <body class="dark">
+    <div id="pjax-load">
     <nav class="navbar">
     <div class="container">
         <div class="flex">
