@@ -1,9 +1,9 @@
 <?php if ($this->options->WebPjax): ?>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script src="<?php $this->options->themeUrl('/assets/js/pjax.min.js'); ?>"></script>
   <link href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
   <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
   </div>
-  <script src="<?php $this->options->themeUrl('/core/pjax.js'); ?>"></script>
+  <script src="<?php $this->options->themeUrl('/assets/js/pjax.control.js'); ?>"></script>
 <?php endif; ?>
 </body>
 <footer class="footer flex">
@@ -16,7 +16,7 @@
             <?php endif; ?>
     </section>
     <?php if ($this->options->The_Dark_Mode): ?>
-    <script async="" src="<?php $this->options->themeUrl('/core/features.js'); ?>" data-enable-footnotes="true"></script>
+    <script async="" src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
     <?php endif; ?>
 </footer>
 <?php if ($this->options->cursor): ?>

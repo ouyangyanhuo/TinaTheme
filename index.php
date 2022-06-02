@@ -116,4 +116,4 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     </div>
 </main>
 <?php $this->need('footer.php'); ?>
-<!-- 完成重写优化 -->
+<!-- 完成重构 -->

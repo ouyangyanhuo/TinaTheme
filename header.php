@@ -16,9 +16,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
     <?php endif; ?>
     <?php if ($this->options->cursor): ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/cursor.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/cursor.css'); ?>">
     <?php endif; ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/style.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
     <?php if ($this->is('index')): ?>
         <?php if ($this->options->SEOOPEN): ?>
         <?php $this->header(); ?>
