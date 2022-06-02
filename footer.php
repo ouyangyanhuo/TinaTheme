@@ -2,22 +2,7 @@
 <link href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.css" rel="stylesheet">
 <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
 </div>
-<script>
-$(document).pjax(
-  'a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',
-  {
-    container: '#pjax-load',
-    fragment: '#pjax-load',
-    timeout: 8000
-  }
-)
-.on('pjax:send', function () {
-  NProgress.start();//加载动画效果开始
-
-}).on('pjax:complete', function () {
-  NProgress.done();//加载动画效果结束
-});
-</script>
+<script src="<?php $this->options->themeUrl('/core/pjax.js'); ?>"></script>
 </body>
 <footer class="footer flex">
     <section class="container">
@@ -29,7 +14,7 @@ $(document).pjax(
             <?php endif; ?>
     </section>
     <?php if ($this->options->The_Dark_Mode): ?>
-    <script async="" src="<?php $this->options->themeUrl('/assets/features.js'); ?>" data-enable-footnotes="true"></script>
+    <script async="" src="<?php $this->options->themeUrl('/core/features.js'); ?>" data-enable-footnotes="true"></script>
     <?php endif; ?>
 </footer>
 <?php if ($this->options->cursor): ?>

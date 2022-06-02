@@ -1,4 +1,12 @@
 <?php function threadedComments($comments, $options) {
+/*
+ * @Author: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @Date: 2022-05-28 18:42:41
+ * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @LastEditTime: 2022-06-02 18:52:36
+ * @FilePath: \SmileTheme\comments.php
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -53,7 +61,7 @@ echo $commentClass;
     	<h4 class="article-post"><?php _e('添加新评论'); ?></h4>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" class="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
-    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
+    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax><?php _e('退出'); ?> &raquo;</a></p>
             <?php else: ?>
     		<p>
                 <label for="author" class="required"><?php _e('称呼'); ?></label>
