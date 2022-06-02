@@ -7,8 +7,8 @@ $(document).pjax(
   }
 )
 .on('pjax:send', function () {
-  NProgress.start();//加载动画效果开始
+  NProgress.start();
 
 }).on('pjax:complete', function () {
-  NProgress.done();//加载动画效果结束
+  NProgress.done();
 });

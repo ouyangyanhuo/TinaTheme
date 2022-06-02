@@ -81,6 +81,18 @@ function themeConfig($form) {
     );
     $form->addInput($WordCount);
     
+    $WebPjax = new Typecho_Widget_Helper_Form_Element_Radio(
+        'WebPjax',
+        array(
+            1 => _t('开启'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('PJAX'),
+        _t('全站PJAX无刷新加载，评论区暂不支持PJAX')
+    );
+    $form->addInput($WebPjax);
+
     /* Link */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
