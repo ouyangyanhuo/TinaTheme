@@ -337,3 +337,26 @@ function word_count($cid){
 	$rs = $db->fetchRow($db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?',$cid)->order ('table.contents.cid',Typecho_Db::SORT_ASC)->limit (1));
 	return mb_strlen($rs['text'], 'UTF-8');
 }
+/* 功能预写入 实现QQ邮箱识别生成头像地址
+function isqq($email)
+{
+    if ($email) {
+        if (strpos($email, "@qq.com") !== false) {
+            $email = str_replace('@qq.com', '', $email);
+            if(is_numeric($email)){
+            echo "//q1.qlogo.cn/g?b=qq&nk=" . $email . "&";
+            }else{
+                $mmail = $email.'@qq.com';
+                $email = md5($mmail);
+                echo "//cdn.v2ex.com/gravatar/" . $email . "?";
+            }
+            
+        } else {
+            $email = md5($email);
+            echo "//cdn.v2ex.com/gravatar/" . $email . "?";
+        }
+    } else {
+        echo "//cdn.v2ex.com/gravatar/null?";
+    }
+}
+*/
