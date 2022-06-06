@@ -122,3 +122,90 @@ function Links($short = false)
     }
     echo $link ? $link : '暂无链接' . "\n";
 }
+    /**
+     * SmileTheme - Verification
+     * 验证系统
+     */
+function themeInit($comment){
+$comment = spam_protection_pre($comment, $post, $result);
+}
+function spam_protection_math(){
+    $num1=rand(1,25);
+    $num2=rand(1,25);
+    echo "<label class=\"required\">请输入 <code>$num1</code> + <code>$num2</code> 的计算结果：</label>";
+    echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" placeholder=\"验证码\">\n";
+    echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
+    echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
+}
+function spam_protection_pre($comment, $post, $result){
+    $sum=$_POST['sum'];
+    switch($sum){
+        case $_POST['num1']+$_POST['num2']:
+        break;
+        case null:
+        throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败'));
+        break;
+        default:
+        throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败'));
+    }
+    return $comment;
+}
+    /**
+     * SmileTheme - ShortCode
+     * 短代码
+     */
+function getContentTest($content) {
+    /* MARK功能 */
+    $pattern = '/\[(mark)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<mark>$2</mark>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 提示功能 */
+    $pattern = '/\[(info)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<div class="alert info">$2</div>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* Keybord */
+    $pattern = '/\[(kbd)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<kbd>$2</kbd>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 上标 */
+    $pattern = '/\[(sup)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<sup>$2</sup>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 下标 */
+    $pattern = '/\[(sub)\](.*?)\[\s*\/\1\s*\]/';
+    $replacement = '<sub>$2</sub>';
+    $content = preg_replace($pattern, $replacement, $content);
+    /* 返回值 */
+    return $content;
+}
+    /**
+     * SmileTheme - Words Count
+     * 字数统计
+     */
+function word_count($cid){
+	$db = Typecho_Db::get ();
+	$rs = $db->fetchRow($db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?',$cid)->order ('table.contents.cid',Typecho_Db::SORT_ASC)->limit (1));
+	return mb_strlen($rs['text'], 'UTF-8');
+}
+    /**
+     * SmileTheme - Comment avatar optimization
+     * 评论头像优化
+     * 为 Gravatar 头像加速，为提供 QQ 邮箱的评论使用 QQ 头像
+     * 实验功能
+     */
+function Authorimg($email)
+{
+    $gravatar_source='dn-qiniu-avatar.qbox.me/avatar';//gravatar头像源
+    $qqmail_source=str_replace('@qq.com','',$email);
+    if(stristr($email,'@qq.com')&&is_numeric($qqmail_source)&&strlen($qqmail_source)<11&&strlen($qqmail_source)>4){
+        $qqimg = 'https://s.p.qq.com/pub/get_face?img_type=3&uin='.$qqmail_source;
+        $qqmail_img_1 = get_headers($qqimg, true);
+        $qqmail_img_2 = $qqmail_img_1['Location'];
+        $qqmail_img_3 = json_encode($qqmail_img_2);
+        $qqmail_img_4 = explode("&k=",$qqmail_img_3)[1];
+        echo 'https://q.qlogo.cn/g?b=qq&k='.$qqmail_img_4.'&s=100';
+    }else{
+        $email= md5($email);
+        echo 'https://'.$gravatar_source.'/'.$email.'?';
+    }
+}

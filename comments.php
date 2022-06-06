@@ -22,7 +22,7 @@ echo $commentClass;
 ?>">
     <div id="<?php $comments->theId(); ?>">
         <div class="comment-author">
-            <?php $comments->gravatar('40', ''); ?>
+            <img class="avatar" src="<?php Authorimg($comments->mail); ?>s=100" alt="Comment_avatar" width="40" height="40"></a>
             <cite class="fn"><?php $comments->author(); ?></cite>
         </div>
         <div class="comment-meta">
@@ -53,7 +53,7 @@ echo $commentClass;
     	<h4 class="article-post"><?php _e('添加新评论'); ?></h4>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" class="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
-    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
+    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax><?php _e('退出'); ?> &raquo;</a></p>
             <?php else: ?>
     		<p>
                 <label for="author" class="required"><?php _e('称呼'); ?></label>
