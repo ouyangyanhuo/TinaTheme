@@ -51,11 +51,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div class="project">
                     <div>
                     <?php if ($this->options->Project_1_URL): ?>
-<<<<<<< dev
                         <a href="<?php $this->options->Project_1_URL() ?>" target="_blank" rel="noreferrer">
                         <?php else: ?>
                         <a href="#" target="_blank" rel="noreferrer">
-=======
                     <a href="<?php $this->options->Project_1_URL() ?>" target="_blank" rel="noreferrer">
                     <?php else: ?>
                     <a href="#" target="_blank" rel="noreferrer">
@@ -69,7 +67,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         <h3><?php $this->options->Project_1_Name() ?></h3>
                     <?php else: ?>
                         <h3>Project</h3>
->>>>>>> main
                     <?php endif; ?>
                         <?php if ($this->options->Project_1_Icon): ?>
                             <div class="icon"><img src="<?php $this->options->Project_1_Icon() ?>" height="30px" width="30px"></div>
@@ -98,11 +95,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div class="project">
                     <div>
                     <?php if ($this->options->Project_2_URL): ?>
-<<<<<<< dev
                         <a href="<?php $this->options->Project_2_URL() ?>" target="_blank" rel="noreferrer">
                         <?php else: ?>
                         <a href="#" target="_blank" rel="noreferrer">
-=======
                     <a href="<?php $this->options->Project_2_URL() ?>" target="_blank" rel="noreferrer">
                     <?php else: ?>
                     <a href="#" target="_blank" rel="noreferrer">
@@ -116,7 +111,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         <h3><?php $this->options->Project_2_Name() ?></h3>
                     <?php else: ?>
                         <h3>Project</h3>
->>>>>>> main
                     <?php endif; ?>
 
                         <?php if ($this->options->Project_2_Icon): ?>
@@ -148,7 +142,4 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     </div>
 </main>
 <?php $this->need('footer.php'); ?>
-<<<<<<< dev
 <!-- 完成重构 -->
-=======
->>>>>>> main
