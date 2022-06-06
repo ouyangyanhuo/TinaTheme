@@ -1,12 +1,4 @@
 <?php function threadedComments($comments, $options) {
-/*
- * @Author: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @Date: 2022-05-28 18:42:41
- * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @LastEditTime: 2022-06-02 18:52:36
- * @FilePath: \SmileTheme\comments.php
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -30,7 +22,7 @@ echo $commentClass;
 ?>">
     <div id="<?php $comments->theId(); ?>">
         <div class="comment-author">
-            <?php $comments->gravatar('40', ''); ?>
+            <img class="avatar" src="<?php Authorimg($comments->mail); ?>s=100" alt="Comment_avatar" width="40" height="40"></a>
             <cite class="fn"><?php $comments->author(); ?></cite>
         </div>
         <div class="comment-meta">
