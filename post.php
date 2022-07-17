@@ -14,6 +14,9 @@
                                 By <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a>
                             </a> |
                             <a>
+                                <time><?php $this->date('M j, Y'); ?></time> |
+                            </a>
+                            <a>
                                 <?php _e('Category: '); ?><?php $this->category(','); ?>
                             </a>
                             <?php if ($this->options->WordCount): ?>
