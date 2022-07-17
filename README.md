@@ -1,11 +1,3 @@
-<!--
- * @Author: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @Date: 2022-05-28 18:42:41
- * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @LastEditTime: 2022-07-17 15:47:49
- * @FilePath: \SmileTheme\README.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 ## SmileTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
@@ -70,7 +62,11 @@ SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/mai
 
 ## 下载渠道
 
+<<<<<<< HEAD
 1.GitHub [https://github.com/ouyangyanhuo/SmileTheme](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
+=======
+1.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
+>>>>>>> 9b698df33cfab1193ae782733667ffa30e6a9717
 
 2.取消 Gitee 下载 因为它真的比 Shit 还烂，Gitee仓库会保留，但不会同步、更新。
 
@@ -79,4 +75,8 @@ SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/mai
 ![](https://i.loli.net/2021/08/16/sARYjilgO9MF2H1.png)
 ![](https://i.loli.net/2021/08/16/rcXL5KjbueZ6zQp.png)
 ![](https://i.loli.net/2021/08/16/wLxGjiPm6pZoyBt.png)
+<<<<<<< HEAD
 ![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
+=======
+![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
+>>>>>>> 9b698df33cfab1193ae782733667ffa30e6a9717
