@@ -12,13 +12,7 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
-    <?php if ($this->options->favicon): ?>
-    <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
-    <?php endif; ?>
-    <?php if ($this->options->cursor): ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/cursor.css'); ?>">
-    <?php endif; ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
+    
     <?php if ($this->is('index')): ?>
         <?php if ($this->options->SEOOPEN): ?>
         <?php $this->header(); ?>
@@ -28,6 +22,13 @@
         <?php $this->header('xmlrpc=&wlw=&commentReply=&antiSpam=&atom'); ?>
         <?php endif; ?>
     <?php endif; ?>
+    <?php if ($this->options->favicon): ?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php $this->options->favicon() ?>">
+    <?php endif; ?>
+    <?php if ($this->options->cursor): ?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/cursor.css'); ?>">
+    <?php endif; ?>
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
     <?php if ($this->options->fancybox): ?>
     <link href="https://cdn.bootcdn.net/ajax/libs//fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
