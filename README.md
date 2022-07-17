@@ -75,7 +75,7 @@ SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/mai
 
 ## 下载渠道
 
-1.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
+1.GitHub [https://github.com/ouyangyanhuo/SmileTheme](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
 
 2.取消 Gitee 下载 因为它真的比 Shit 还烂，Gitee仓库会保留，但不会同步、更新。
 
