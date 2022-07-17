@@ -3,7 +3,7 @@
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.7-critical?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.2.8-critical?style=for-the-badge)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge)
@@ -14,6 +14,8 @@
 ## 最近版本更新日志
 
 - 修复主题应用时存在的Bug
+- 重构部分页面
+- 本版本属于修复更新，无重大功能更新
 
 ## 使用提示
 
@@ -62,11 +64,7 @@ SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/mai
 
 ## 下载渠道
 
-<<<<<<< HEAD
 1.GitHub [https://github.com/ouyangyanhuo/SmileTheme](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
-=======
-1.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/SmileTheme)  适合国外（主仓库）
->>>>>>> 9b698df33cfab1193ae782733667ffa30e6a9717
 
 2.取消 Gitee 下载 因为它真的比 Shit 还烂，Gitee仓库会保留，但不会同步、更新。
 
@@ -75,8 +73,4 @@ SmileTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/SmileTheme/blob/mai
 ![](https://i.loli.net/2021/08/16/sARYjilgO9MF2H1.png)
 ![](https://i.loli.net/2021/08/16/rcXL5KjbueZ6zQp.png)
 ![](https://i.loli.net/2021/08/16/wLxGjiPm6pZoyBt.png)
-<<<<<<< HEAD
 ![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
-=======
-![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
->>>>>>> 9b698df33cfab1193ae782733667ffa30e6a9717
