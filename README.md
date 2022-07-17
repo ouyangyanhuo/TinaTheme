@@ -3,7 +3,7 @@
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.7-critical?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.2.8-critical?style=for-the-badge)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge)
@@ -13,25 +13,14 @@
 
 ## 最近版本更新日志
 
-- ✨新增了 PJAX 加载
-- ✨新增了 评论区头像优化
-- ✨新增了 更新检测
-- 🔪删除了 热门文章及其相关核心
-- 🔪删除了 文章内标题索引（算是一个小Bug）
-- 简化了数学验证
-- 优化了程序构成
-- 重写了部分页面
-- 打磨 PJAX 加载
-- 修改了 页脚 使其适应 PJAX
+- 修复主题应用时存在的Bug
+- 重构部分页面
+- 本版本属于修复更新，无重大功能更新
 
-## 更新阐释
-- 删除热门文章及其相关核心，是因为其具有不可控且无法修复的Bug
+## 使用提示
 
-- 评论区头像优化是一项无法关闭的内容，如果需要关闭或修改 Gravatar 的代理地址，请前往 `/主题所在目录/core/functions.php` 第 190-211 行 进行修改。
+- 在1.2.7版本更新时，添加了评论区头像优化，使得评论区头像可以通过QQ邮箱解析，并且更改了默认头像源，评论区头像优化是一项无法关闭的内容，如果需要关闭或修改 Gravatar 的代理地址，请前往 `/主题所在目录/core/functions.php` 第 190-211 行 进行修改。
 
-- 简化数学验证，纯粹是因为即使是 100 以内的加减法也难算了些，所以改为了最大 25+25 的组合
-
-- 部分页面为了优化代码，进行了重写，后续更新会陆续跟进，重写通常情况下不影响正常功能。
 ## 功能与特性
 
 - 简洁风格

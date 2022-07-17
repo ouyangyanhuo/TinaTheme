@@ -9,10 +9,16 @@
                         <h1><?php $this->title() ?></h1>
                         <div class="post-meta">
                             <div>
-                            <a>By <?php $this->author(); ?></a> | 
-                            <time><?php $this->date('M j, Y'); ?></time>
+                            <a>
+                                By <?php $this->author(); ?>
+                            </a> | 
+                            <a>
+                                <time><?php $this->date('M j, Y'); ?></time>
+                            </a> |
                             <?php if ($this->options->WordCount): ?>
-                            <a> | 共 <?php echo word_count($this->cid); ?> 个字符</a>
+                            <a>
+                                共 <?php echo word_count($this->cid); ?> 个字符
+                            </a>
                             <?php endif; ?>
                             </div>
                         </div>
@@ -47,3 +53,4 @@
     </div>
 </main>
 <?php $this->need('footer.php'); ?>
+<!-- 完成重构 -->
