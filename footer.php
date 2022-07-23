@@ -7,6 +7,7 @@
             <?php $this->options->FooterHTML() ?>
             <?php endif; ?>
     </section>
+    <?php if ($this->options->MathRender): ?>
     <script type="text/javascript">
         window.MathJax = {
             tex: {
@@ -15,6 +16,7 @@
         };
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <?php endif; ?>
     <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
 </footer>
 <?php if ($this->options->WebPjax): ?>
