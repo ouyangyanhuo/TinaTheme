@@ -7,7 +7,13 @@
             <?php $this->options->FooterHTML() ?>
             <?php endif; ?>
     </section>
-    <?php if ($this->options->MathRender): ?>
+    <?php if ($this->options->MathRender == 'KaTeX'): ?>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/katex.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/katex.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js"></script>
+    <script src="<?php $this->options->themeUrl('/assets/js/katex.support.js'); ?>"></script>
+    <?php endif; ?>
+    <?php if ($this->options->MathRender == 'MathJax'): ?>
     <script type="text/javascript">
         window.MathJax = {
             tex: {
@@ -16,6 +22,8 @@
         };
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <?php endif; ?>
+    <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
     <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
 </footer>

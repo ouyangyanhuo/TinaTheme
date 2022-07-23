@@ -96,12 +96,13 @@ function themeConfig($form) {
     $MathRender = new Typecho_Widget_Helper_Form_Element_Radio(
         'MathRender',
         array(
-            1 => _t('MathJax'),
-            0 => _t('关闭')
+            'MathJax' => _t('MathJax'),
+            'KaTeX' => _t('KaTeX'),
+            'Close' => _t('关闭')
         ),
-        1,
+        'KaTeX',
         _t('数学公式渲染'),
-        _t('渲染数学公式,由于 PJAX 兼容原因，暂不提供 Katex 渲染方式')
+        _t('用于对数学公式的渲染')
     );
     $form->addInput($MathRender);
 
