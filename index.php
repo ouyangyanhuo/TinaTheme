@@ -6,7 +6,7 @@
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2.8
+ * @version 1.2.9-Build22723-Dev-No.1
  * @link https://www.fmcf.cc
  */
 

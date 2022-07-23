@@ -7,9 +7,15 @@
             <?php $this->options->FooterHTML() ?>
             <?php endif; ?>
     </section>
-    <?php if ($this->options->The_Dark_Mode): ?>
-    <script async="" src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
-    <?php endif; ?>
+    <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+            }
+        };
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
 </footer>
 <?php if ($this->options->WebPjax): ?>
   <script src="<?php $this->options->themeUrl('/assets/js/pjax.min.js'); ?>"></script>
@@ -20,7 +26,7 @@
 <?php endif; ?>
 </body>
 <?php if ($this->options->cursor): ?>
-  <script async="" src="<?php $this->options->themeUrl('/assets/js/cursor.js'); ?>" data-enable-footnotes="true"></script>
+  <script src="<?php $this->options->themeUrl('/assets/js/cursor.js'); ?>" data-enable-footnotes="true"></script>
 <?php endif; ?>
 </html>
 <?php /* 来自 MDr | HTML 压缩 */
