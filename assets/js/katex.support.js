@@ -1,0 +1,2 @@
+/*! SmileJS for v1.2.9 | Created by Magneto for Smiletheme */
+renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});

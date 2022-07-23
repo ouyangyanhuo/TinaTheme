@@ -2,11 +2,11 @@
 /**
  * 移植自<a href="https://limxw.com/" target="_blank">WingLim</a>的<a href="https://github.com/WingLim/hugo-tania" target="_blank">hugo-tania</a>主题，在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
  * <hr><a style="width:fit-content" id="SmileTheme">版本检测中...&nbsp;</div>
- * <script>var simversion="1.2.9-Build22723-Dev-No.3";function update_detec(){var container=document.getElementById("SmileTheme");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/SmileTheme/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
+ * <script>var simversion="1.2.9-Build22723-Dev-No.4";function update_detec(){var container=document.getElementById("SmileTheme");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/SmileTheme/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
  * 
  * @package Smile Theme
  * @author Magneto
- * @version 1.2.9-Build22723-Dev-No.3
+ * @version 1.2.9-Build22723-Dev-No.4
  * @link https://www.fmcf.cc
  */
 
