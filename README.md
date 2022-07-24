@@ -27,9 +27,7 @@
 - 完成所有所需页面的重构
 
 ## 年少之梦
-本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
-
-<center><a href="https://www.teendreams.cn/" target="_blank" ><img width="200px" height="200px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a></center>
+本项目及开发者已加入 <a href="https://www.teendreams.cn/" target="_blank">「年少之梦」</a> 组织<a href="https://www.teendreams.cn/" target="_blank" ><img width="150px" height="40px" src="https://s2.loli.net/2022/07/21/AMvn6bRIsjxkcoS.png"></a>
 
 ## 使用提示
 
