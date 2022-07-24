@@ -1,6 +1,6 @@
 ---
 name: Other content
-about: 描述你所需要的帮助
+about: 描述这些其它内容
 title: ''
 labels: ''
 assignees: ''
