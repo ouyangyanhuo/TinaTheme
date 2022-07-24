@@ -209,3 +209,45 @@ function Authorimg($email)
         echo 'https://'.$gravatar_source.'/'.$email.'?';
     }
 }
+    /**
+     * SmileTheme - Next or Previous Post
+     * 上一篇文章、下一篇文章输出修订
+     * 为了在 a 标签的内容中同时兼容文章标题和其它内容所写
+     */
+    function prev_post($archive) {
+        $db = Typecho_Db::get();
+        $content = $db->fetchRow($db->select()
+                ->from('table.contents')
+                ->where('table.contents.created < ?', $archive->created)
+                ->where('table.contents.status = ?', 'publish')
+                ->where('table.contents.type = ?', $archive->type)
+                ->where('table.contents.password IS NULL')
+                ->order('table.contents.created', Typecho_Db::SORT_DESC)
+                ->limit(1));
+        if ($content) {
+            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Previous</span>' . $content['title'] . '</a>';
+        }
+        else {
+            echo '';
+        }
+    }
+    
+    function next_post($archive) {
+        $db = Typecho_Db::get();
+        $content = $db->fetchRow($db->select()
+                ->from('table.contents')
+                ->where('table.contents.created > ? AND table.contents.created < ?', $archive->created, Helper::options()->gmtTime)
+                ->where('table.contents.status = ?', 'publish')
+                ->where('table.contents.type = ?', $archive->type)
+                ->where('table.contents.password IS NULL')
+                ->order('table.contents.created', Typecho_Db::SORT_ASC)
+                ->limit(1));
+        if ($content) {
+            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Next</span>' . $content['title'] . '</a>';
+        }
+        else {
+            echo '';
+        }
+    }

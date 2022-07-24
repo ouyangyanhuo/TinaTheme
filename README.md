@@ -3,7 +3,7 @@
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的Smiletheme或许是你在Typecho上最好的选择
 
 [![AdminMD](https://img.shields.io/badge/Magneto-SmileTheme-brightgreen?style=for-the-badge)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-1.2.8-critical?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-2.0.0-critical?style=for-the-badge)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/SmileTheme?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/SmileTheme?style=for-the-badge)
@@ -13,10 +13,23 @@
 
 ## 最近版本更新日志
 
-- 此版本为开发版（Build22723-Dev）
+- 此版本为开发版（Build22725-Dev）
 - 新增了对 MathJax 和 KaTeX 数学公式的渲染支持
 - 修复了关闭后台夜间模式后存在的问题
 - 使用例子：$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $
+- 重写了 代码高亮 模块
+- 新增了 代码块
+- 主题版本号由 v1 升级至 v2
+- 删除了在文章没有设置 标签 时显示的"No Tag"
+- 修改了默认滚动条
+- 重写了上一篇、下一篇按钮
+- 新增了针对上一篇、下一篇按钮的核心内容
+- 完成所有所需页面的重构
+
+## 年少之梦
+本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
+
+<center><a href="https://www.teendreams.cn/" target="_blank" ><img width="200px" height="200px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a></center>
 
 ## 使用提示
 
@@ -35,6 +48,10 @@
 - 高度自定义
 
 - 完善的后台设置系统
+
+- HighLight.js
+
+- Pjax
 
 欢迎提 Issues 和 PRs，欢迎提出建议
 

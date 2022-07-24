@@ -23,7 +23,7 @@
                             <?php endif; ?>
                             </div>
                             <div class="tags">
-                                <?php $this->tags(', ', true, '<a>NoTag</a>'); ?>
+                                <?php $this->tags(', ', true); ?>
                         </div>
                     </div>
                 </div>
@@ -56,12 +56,8 @@
     <?php endif; ?>
     <div class="container">
         <nav class="flex container suggested">
-                上一篇
-                <?php $this->thePrev('%s', '<a href="#">没有了</a>');?>
-            
-                下一篇
-                <?php $this->theNext('%s', '<a href="#">没有了</a>');?>
+            <?php prev_post($this);?>
+            <?php next_post($this);?>
         </nav>
     </div>
 <?php $this->need('footer.php'); ?>
-<!-- 完成重构 -->
