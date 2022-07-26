@@ -47,10 +47,7 @@ echo $commentClass;
     <?php $this->comments()->to($comments); ?>
     <?php if($this->allow('comment')): ?>
     <div id="<?php $this->respondId(); ?>" class="respond">
-        <div class="cancel-comment-reply">
-        <?php $comments->cancelReply(); ?>
-        </div>
-    	<h4 class="article-post"><?php _e('添加新评论'); ?></h4>
+    	<h4 class="article-post"><?php _e('添加新评论'); ?> <small><?php $comments->cancelReply(); ?></small></h4>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" class="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
     		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax><?php _e('退出'); ?> &raquo;</a></p>
