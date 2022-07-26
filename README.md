@@ -8,6 +8,13 @@
 
 _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
+## 年少之梦
+
+<div align="center">
+本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
+<a href="https://www.teendreams.cn/" target="_blank" ><img width="200px" height="200px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
+</div>
+
 ## TinaTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的TinaTheme或许是你在Typecho上最好的选择
@@ -37,12 +44,8 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 - 完成所有所需页面的重构
 - 由 SmileTheme 更名为 TinaTheme
 - 调整评论区 取消回复 按钮位置
-- 新增了加密文章的输入框、提交按钮的样式。
-
-## 年少之梦
-本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
-
-<center><a href="https://www.teendreams.cn/" target="_blank" ><img width="200px" height="200px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a></center>
+- 新增了加密文章的输入框、提交按钮的样式
+- 当前Dev分支由于主题暂未更名，部分内容暂时无法显示
 
 ## 使用提示
 
