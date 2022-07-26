@@ -1,3 +1,13 @@
+<p align="center">
+    <img src="https://tva4.sinaimg.cn/large/008aATBzgy1h4k9e3x97nj30qe0qetd8.jpg" width="200" height="200" alt="Haku">
+</p>
+
+<div align="center">
+
+# Tina
+
+_Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
+
 ## TinaTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的TinaTheme或许是你在Typecho上最好的选择
