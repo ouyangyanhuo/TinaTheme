@@ -12,7 +12,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 <div align="center">
 本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
-<a href="https://www.teendreams.cn/" target="_blank" ><img width="200px" height="200px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
+<a href="https://www.teendreams.cn/" target="_blank" ><img width="100px" height="100px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
 </div>
 
 ## TinaTheme
