@@ -86,13 +86,13 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 文档
 
-Tinatheme 文档 : [https://Tinatheme.docs.fmcf.cc](https://Tinatheme.docs.fmcf.cc)
+Tinatheme 文档 : [https://tinatheme.docs.fmcf.cc](https://tinatheme.docs.fmcf.cc)
 
 ## Demo
 
 主题效果预览
 
-Tinatheme主题演示站：[https://Tinatheme.fmcf.cc](https://Tinatheme.fmcf.cc)
+Tinatheme主题演示站：[https://tinatheme.fmcf.cc](https://tinatheme.fmcf.cc)
 
 ## 注意
 
