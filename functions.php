@@ -10,7 +10,7 @@ function themeConfig($form) {
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
-    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('Favicon 图标'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/SmileTheme/assets/favicon.ico'));
+    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, '/usr/themes/TinaTheme/assets/favicon.ico', _t('Favicon 图标'), _t('在这里填入一个图片 URL 地址, 以添加一个 Favicon，留空则不单独设置 Favicon，主题默认 Favicon 地址为 /usr/themes/TinaTheme/assets/favicon.ico'));
 	$form->addInput($favicon);
 	
 	$articles = new Typecho_Widget_Helper_Form_Element_Text('articles', NULL, '/index.php/articles.html', _t('Articles URL'), _t('首页全部文章按钮<a href="https://z3.ax1x.com/2021/08/15/fcasqf.png" target="_blank">[查看示例图片]</a>指向的链接，需要创建Articles的自定义页面，并在此填入自定义页面的URL才可正常使用，不填则不显示，<strong><font color="#525288">强烈推荐开启</font></strong>，因为首页不支持文章翻页，一次仅能浏览有限数量文章。'));
@@ -92,6 +92,19 @@ function themeConfig($form) {
         _t('全站PJAX无刷新加载，评论区暂不支持PJAX')
     );
     $form->addInput($WebPjax);
+
+    $MathRender = new Typecho_Widget_Helper_Form_Element_Radio(
+        'MathRender',
+        array(
+            'MathJax' => _t('MathJax'),
+            'KaTeX' => _t('KaTeX'),
+            'Close' => _t('关闭')
+        ),
+        'KaTeX',
+        _t('数学公式渲染'),
+        _t('用于对数学公式的渲染')
+    );
+    $form->addInput($MathRender);
 
     /* Link */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
@@ -229,13 +242,13 @@ function themeConfig($form) {
         _t('开启后可在首页见到第一个项目推荐，若想要显示，请首先开启项目推荐')
     );
     $form->addInput($Project_1);
-	$Project_1_Name = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Name', NULL, 'SmileTheme', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的名称'), _t(''));
+	$Project_1_Name = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Name', NULL, 'TinaTheme', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的名称'), _t(''));
 	$form->addInput($Project_1_Name);
-	$Project_1_URL = new Typecho_Widget_Helper_Form_Element_Text('Project_1_URL', NULL, 'https://www.github.com/ouyangyanhuo/SmileTheme', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的链接'), _t('这里写第一个项目的链接地址，不填则代表留空'));
+	$Project_1_URL = new Typecho_Widget_Helper_Form_Element_Text('Project_1_URL', NULL, 'https://www.github.com/ouyangyanhuo/TinaTheme', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的链接'), _t('这里写第一个项目的链接地址，不填则代表留空'));
 	$form->addInput($Project_1_URL);
 	$Project_1_Describe = new Typecho_Widget_Helper_Form_Element_Textarea('Project_1_Describe', NULL, 'A theme for Typecho', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的描述'), _t('这里写第一个项目的描述内容，不推荐超过50字，不填则代表留空'));
 	$form->addInput($Project_1_Describe);
-	$Project_1_Icon = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Icon', NULL, '/usr/themes/SmileTheme/assets/favicon.ico', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的图标'), _t('这里填入第一个项目的图标的链接，由于未知原因，暂不支持Emoji、Windows表情，若有需要请修改本地代码'));
+	$Project_1_Icon = new Typecho_Widget_Helper_Form_Element_Text('Project_1_Icon', NULL, '/usr/themes/TinaTheme/assets/favicon.ico', _t('<strong><font color="#ed5a65">第一个</font></strong>项目的图标'), _t('这里填入第一个项目的图标的链接，由于未知原因，暂不支持Emoji、Windows表情，若有需要请修改本地代码'));
 	$form->addInput($Project_1_Icon);
 	
 	$Project_2 = new Typecho_Widget_Helper_Form_Element_Radio(

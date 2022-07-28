@@ -29,10 +29,13 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/cursor.css'); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/styles/androidstudio.min.css"/>
+    <script src="//cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <?php if ($this->options->fancybox): ?>
-    <link href="https://cdn.bootcdn.net/ajax/libs//fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <link href="//cdn.bootcdn.net/ajax/libs//fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <?php endif; ?>
 </head>
 <body>

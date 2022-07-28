@@ -35,4 +35,3 @@
     </section>
 </main>
 <?php $this->need('footer.php'); ?>
-<!-- 无需重构 -->

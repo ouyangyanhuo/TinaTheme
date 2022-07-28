@@ -1,6 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     /**
-     * SmileTheme - FindContents
+     * TinaTheme - FindContents
      * 函数定义
      */
 function FindContents($val = NULL, $order = 'order', $sort = 'a', $publish = NULL)
@@ -19,7 +19,7 @@ function FindContents($val = NULL, $order = 'order', $sort = 'a', $publish = NUL
     return $db->fetchAll($select, array(Typecho_Widget::widget('Widget_Abstract_Contents'), 'filter'));
 }
     /**
-     * SmileTheme - compressHtml
+     * TinaTheme - compressHtml
      * 代码压缩
      */
 function compressHtml($html_source)
@@ -72,7 +72,7 @@ function compressHtml($html_source)
     return $compress;
 }
     /**
-     * SmileTheme - Links
+     * TinaTheme - Links
      * 友情链接
      */
 function Links_list()
@@ -123,7 +123,7 @@ function Links($short = false)
     echo $link ? $link : '暂无链接' . "\n";
 }
     /**
-     * SmileTheme - Verification
+     * TinaTheme - Verification
      * 验证系统
      */
 function themeInit($comment){
@@ -151,7 +151,7 @@ function spam_protection_pre($comment, $post, $result){
     return $comment;
 }
     /**
-     * SmileTheme - ShortCode
+     * TinaTheme - ShortCode
      * 短代码
      */
 function getContentTest($content) {
@@ -179,7 +179,7 @@ function getContentTest($content) {
     return $content;
 }
     /**
-     * SmileTheme - Words Count
+     * TinaTheme - Words Count
      * 字数统计
      */
 function word_count($cid){
@@ -188,24 +188,44 @@ function word_count($cid){
 	return mb_strlen($rs['text'], 'UTF-8');
 }
     /**
-     * SmileTheme - Comment avatar optimization
-     * 评论头像优化
-     * 为 Gravatar 头像加速，为提供 QQ 邮箱的评论使用 QQ 头像
-     * 实验功能
+     * TinaTheme - Next or Previous Post
+     * 上一篇文章、下一篇文章输出修订
+     * 为了在 a 标签的内容中同时兼容文章标题和其它内容所写
      */
-function Authorimg($email)
-{
-    $gravatar_source='dn-qiniu-avatar.qbox.me/avatar';//gravatar头像源
-    $qqmail_source=str_replace('@qq.com','',$email);
-    if(stristr($email,'@qq.com')&&is_numeric($qqmail_source)&&strlen($qqmail_source)<11&&strlen($qqmail_source)>4){
-        $qqimg = 'https://s.p.qq.com/pub/get_face?img_type=3&uin='.$qqmail_source;
-        $qqmail_img_1 = get_headers($qqimg, true);
-        $qqmail_img_2 = $qqmail_img_1['Location'];
-        $qqmail_img_3 = json_encode($qqmail_img_2);
-        $qqmail_img_4 = explode("&k=",$qqmail_img_3)[1];
-        echo 'https://q.qlogo.cn/g?b=qq&k='.$qqmail_img_4.'&s=100';
-    }else{
-        $email= md5($email);
-        echo 'https://'.$gravatar_source.'/'.$email.'?';
+    function prev_post($archive) {
+        $db = Typecho_Db::get();
+        $content = $db->fetchRow($db->select()
+                ->from('table.contents')
+                ->where('table.contents.created < ?', $archive->created)
+                ->where('table.contents.status = ?', 'publish')
+                ->where('table.contents.type = ?', $archive->type)
+                ->where('table.contents.password IS NULL')
+                ->order('table.contents.created', Typecho_Db::SORT_DESC)
+                ->limit(1));
+        if ($content) {
+            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Previous</span>' . $content['title'] . '</a>';
+        }
+        else {
+            echo '';
+        }
     }
-}
+    
+    function next_post($archive) {
+        $db = Typecho_Db::get();
+        $content = $db->fetchRow($db->select()
+                ->from('table.contents')
+                ->where('table.contents.created > ? AND table.contents.created < ?', $archive->created, Helper::options()->gmtTime)
+                ->where('table.contents.status = ?', 'publish')
+                ->where('table.contents.type = ?', $archive->type)
+                ->where('table.contents.password IS NULL')
+                ->order('table.contents.created', Typecho_Db::SORT_ASC)
+                ->limit(1));
+        if ($content) {
+            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Next</span>' . $content['title'] . '</a>';
+        }
+        else {
+            echo '';
+        }
+    }
