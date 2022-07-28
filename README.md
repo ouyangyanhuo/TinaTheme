@@ -40,7 +40,6 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 最近版本更新日志
 
-- 此版本为开发版（Build22725-Dev）
 - 🚀由 SmileTheme 更名为 TinaTheme
 - ✨新增了 代码块
 - ✨新增了滚动条样式
