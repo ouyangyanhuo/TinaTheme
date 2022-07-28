@@ -19,22 +19,20 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 <a href="https://www.teendreams.cn/" target="_blank" ><img width="100px" height="100px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
 </div>
 
-## 更新前注意
-
-此更新注意事项仅存在于 2.0.0 正式版本中，请务必认真！
-- 在 2.0.0 版本，由于主题更名，因此主题文件夹名称会变更，与旧版本能够共存，但一定要删除旧版本的文件！！否则会导致更新检测冲突。
-- 在 2.0.0 版本，由于主题更名，启用新主题时，会导致原主题的相关设置内容丢失，请启用前做好设置内容的备份！
-
 ## TinaTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
 
-[![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen?style=for-the-badge)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-2.0.0-critical?style=for-the-badge)
-![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/TinaTheme?style=for-the-badge&k)
+<div align="center">
+    
+[![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
+![Version](https://img.shields.io/badge/Version-2.0.0-criticale)
+![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
+![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
+![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
+![Forks](https://img.shields.io/github/forks/ouyangyanhuo/TinaTheme)
+    
+</div>
 
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
@@ -83,13 +81,13 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 文档
 
-TinaTheme 文档 : [https://tinatheme.docs.fmcf.cc](https://tinatheme.docs.fmcf.cc)
+TinaTheme 文档 : [https://tina.docs.fmcf.cc](https://tina.docs.fmcf.cc)
 
 ## Demo
 
 主题效果预览
 
-TinaTheme主题演示站：[https://tinatheme.fmcf.cc](https://tinatheme.fmcf.cc)
+TinaTheme主题演示站：[https://tina.fmcf.cc](https://tina.fmcf.cc)
 
 ## 注意
 
@@ -116,4 +114,3 @@ TinaTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/TinaTheme/blob/main/
 ![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8k558gj31x20ysqgq.jpg)
 ![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8l3r4mj31x20ys4ec.jpg)
 ![](https://i.loli.net/2021/08/16/Cq1Dymtsur4eTAV.png)
-_ _
