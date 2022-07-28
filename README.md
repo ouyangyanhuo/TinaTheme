@@ -29,18 +29,19 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
 
-[![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen?style=for-the-badge)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-2.0.0-critical?style=for-the-badge)
-![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme?style=for-the-badge)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/TinaTheme?style=for-the-badge&k)
+<div align="center">
+[![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
+![Version](https://img.shields.io/badge/Version-2.0.0-criticale)
+![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
+![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
+![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
+![Forks](https://img.shields.io/github/forks/ouyangyanhuo/TinaTheme)
+</div>
 
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
 
-- 此版本为开发版（Build22725-Dev）
 - 🚀由 SmileTheme 更名为 TinaTheme
 - ✨新增了 代码块
 - ✨新增了滚动条样式
