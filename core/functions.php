@@ -188,28 +188,6 @@ function word_count($cid){
 	return mb_strlen($rs['text'], 'UTF-8');
 }
     /**
-     * TinaTheme - Comment avatar optimization
-     * 评论头像优化
-     * 为 Gravatar 头像加速，为提供 QQ 邮箱的评论使用 QQ 头像
-     * 实验功能
-     */
-function Authorimg($email)
-{
-    $gravatar_source='dn-qiniu-avatar.qbox.me/avatar';//gravatar头像源
-    $qqmail_source=str_replace('@qq.com','',$email);
-    if(stristr($email,'@qq.com')&&is_numeric($qqmail_source)&&strlen($qqmail_source)<11&&strlen($qqmail_source)>4){
-        $qqimg = 'https://s.p.qq.com/pub/get_face?img_type=3&uin='.$qqmail_source;
-        $qqmail_img_1 = get_headers($qqimg, true);
-        $qqmail_img_2 = $qqmail_img_1['Location'];
-        $qqmail_img_3 = json_encode($qqmail_img_2);
-        $qqmail_img_4 = explode("&k=",$qqmail_img_3)[1];
-        echo 'https://q.qlogo.cn/g?b=qq&k='.$qqmail_img_4.'&s=100';
-    }else{
-        $email= md5($email);
-        echo 'https://'.$gravatar_source.'/'.$email.'?';
-    }
-}
-    /**
      * TinaTheme - Next or Previous Post
      * 上一篇文章、下一篇文章输出修订
      * 为了在 a 标签的内容中同时兼容文章标题和其它内容所写

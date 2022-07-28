@@ -22,7 +22,7 @@ echo $commentClass;
 ?>">
     <div id="<?php $comments->theId(); ?>">
         <div class="comment-author">
-            <img class="avatar" src="<?php Authorimg($comments->mail); ?>s=100" alt="Comment_avatar" width="40" height="40"></a>
+            <?php $comments->gravatar('40', ''); ?>
             <cite class="fn"><?php $comments->author(); ?></cite>
         </div>
         <div class="comment-meta">
