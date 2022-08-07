@@ -45,6 +45,18 @@ function themeConfig($form) {
     );
     $form->addInput($compressHtml);
     
+    $JqueryControl = new Typecho_Widget_Helper_Form_Element_Radio(
+        'JqueryControl',
+        array(
+            1 => _t('启用'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('JqueryControl'),
+        _t('默认开启，<font color="#ed5a65">如果要使用PJAX、Fancybox必须开启 Jquery 控件！</font>')
+    );
+    $form->addInput($JqueryControl);
+
     $fancybox = new Typecho_Widget_Helper_Form_Element_Radio(
         'fancybox',
         array(

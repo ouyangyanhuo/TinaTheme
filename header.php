@@ -34,8 +34,10 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <?php if ($this->options->fancybox): ?>
     <link href="//cdn.bootcdn.net/ajax/libs//fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
-    <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <?php endif; ?>
+    <?php if ($this->options->JqueryControl): ?>
+    <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <?php endif; ?>
 </head>
 <body>
