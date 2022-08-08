@@ -5,6 +5,7 @@ if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper
 require_once __DIR__ . '/core/functions.php';
 
 function themeConfig($form) {
+    require_once __DIR__ . '/core/backup.php';
     /* 外观 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
