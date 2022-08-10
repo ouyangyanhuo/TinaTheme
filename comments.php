@@ -84,7 +84,7 @@ echo $commentClass;
     </div>
     <?php if ($comments->have()): ?>
 	<h4 class="comments-title-article-post"><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h4>
-    <a class="article-post"><?php $comments->listComments(); ?></a>
+    <?php $comments->listComments(); ?>
     <?php $comments->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
     <?php endif; ?>
     <?php else: ?>
