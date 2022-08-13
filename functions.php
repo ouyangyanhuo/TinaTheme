@@ -5,6 +5,7 @@ if (Helper::options()->GravatarUrl) define('__TYPECHO_GRAVATAR_PREFIX__', Helper
 require_once __DIR__ . '/core/functions.php';
 
 function themeConfig($form) {
+    require_once __DIR__ . '/core/backup.php';
     /* 外观 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
@@ -45,6 +46,18 @@ function themeConfig($form) {
     );
     $form->addInput($compressHtml);
     
+    $JqueryControl = new Typecho_Widget_Helper_Form_Element_Radio(
+        'JqueryControl',
+        array(
+            1 => _t('启用'),
+            0 => _t('关闭')
+        ),
+        1,
+        _t('JqueryControl'),
+        _t('默认开启，<font color="#ed5a65">如果要使用PJAX、Fancybox必须开启 Jquery 控件！</font>')
+    );
+    $form->addInput($JqueryControl);
+
     $fancybox = new Typecho_Widget_Helper_Form_Element_Radio(
         'fancybox',
         array(
@@ -145,6 +158,17 @@ function themeConfig($form) {
         _t('评论区的加减法验证系统，关闭后反垃圾评论效果降低。')
     );
     $form->addInput($TheVerification);
+
+    $GravatarUrl = new Typecho_Widget_Helper_Form_Element_Radio('GravatarUrl', 
+    array
+    (
+        false => _t('官方源'),
+        'https://cdn.helingqi.com/avatar/' => _t('禾令奇源'),
+        'https://sdn.geekzu.org/avatar/' => _t('极客族源'),
+        'https://dn-qiniu-avatar.qbox.me/avatar/' => _t('七牛源')
+	),
+	'https://cdn.helingqi.com/avatar/', _t('Gravatar头像源'), _t('默认禾令奇源'));
+	$form->addInput($GravatarUrl);
     
      /* Notice */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站公告 <small>Notice</small></h2>'));

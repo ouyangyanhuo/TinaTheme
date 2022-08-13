@@ -14,13 +14,7 @@
     <script src="<?php $this->options->themeUrl('/assets/js/katex.support.js'); ?>"></script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'MathJax'): ?>
-    <script type="text/javascript">
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-            }
-        };
-    </script>
+    <script type="text/javascript">window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],}};</script>
     <script src="//cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'Close'): ?>

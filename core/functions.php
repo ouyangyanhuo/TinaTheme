@@ -114,9 +114,9 @@ function Links($short = false)
         foreach ($list as $val) {
             list($name, $url, $description, $logo) = explode(',', $val);
             if ($short) {
-                $link .= '<li><a target="_blank" rel="nofollow" href="' . $url . '"><img src="' . $logo . '"><h4>@' . $name . '</h4><p>' . $description . '</p></a></li>' . "\n";
+                $link .= '<li><a target="_blank" rel="nofollow" href="' . $url . '"><img src="' . $logo . '"><div class="linkpage_links">@' . $name . '</div><p>' . $description . '</p></a></li>' . "\n";
             } else {
-                $link .= '<li><a target="_blank" rel="nofollow" href="' . $url . '"><img src="' . $logo . '"><h4>@' . $name . '</h4><p>' . $description . '</p></a></li>' . "\n";
+                $link .= '<li><a target="_blank" rel="nofollow" href="' . $url . '"><img src="' . $logo . '"><div class="linkpage_links">@' . $name . '</div><p>' . $description . '</p></a></li>' . "\n";
             }
         }
     }

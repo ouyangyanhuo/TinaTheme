@@ -19,12 +19,6 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 <a href="https://www.teendreams.cn/" target="_blank" ><img width="100px" height="100px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
 </div>
 
-## 更新前注意
-
-此更新注意事项仅存在于 2.0.0 正式版本中，请务必认真！
-- 在 2.0.0 版本，由于主题更名，因此主题文件夹名称会变更，与旧版本能够共存，但一定要删除旧版本的文件！！否则会导致更新检测冲突。
-- 在 2.0.0 版本，由于主题更名，启用新主题时，会导致原主题的相关设置内容丢失，请启用前做好设置内容的备份！
-
 ## TinaTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
@@ -32,7 +26,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 <div align="center">
     
 [![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-2.0.0-criticale)
+![Version](https://img.shields.io/badge/Version-2.0.1-criticale)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
@@ -44,23 +38,18 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 最近版本更新日志
 
-- 🚀由 SmileTheme 更名为 TinaTheme
-- ✨新增了 代码块
-- ✨新增了滚动条样式
-- ✨新增了针对上一篇、下一篇按钮的核心内容
-- ✨新增了加密文章的输入框、提交按钮的样式
-- ✨新增了对 MathJax 和 KaTeX 数学公式的渲染支持
-- ✨重写了 代码高亮
-- ✨重写了上一篇、下一篇按钮
-- 🔪删除了在文章没有设置 标签 时显示的"No Tag"
-- 🔪删除了评论头像(负)优化
-- 修复了关闭后台夜间模式后存在的问题
-- 修复评论过长，导致文本溢出的问题
-- 优化更新检测请求的UI
-- 完成所有所需页面的重构
-- 调整评论区 取消回复 按钮位置
-- 优化夜间模式评论区输入内容的显示效果
-- 将更新检测请求由 GitHub 移至 Assets-FMCF
+- 🌈更改 更新校验方式 将其更改为 内部版本号校验 以达到精确校验（大部分App应用商店的校验方式）
+- ⭐新增 Gravatar头像源切换 功能，用于加速国内的Gravatar头像显示，经测试不会影响运行性能。
+- ⭐新增 主题数据备份 功能，数据存储于数据库中，名称为 TinaThemebf
+- 🔪删除了在 CSS 中部分无法正常使用的功能
+- 🔪删除了冗余的核心JS
+- 修复开启图片灯箱后对Tyoecho `<!---more-->`  标签的支持
+- 修复了不开启图片灯箱无法正常使用PJAX的陈年Bug
+- 修复了评论区头像的显示效果负优化
+- 优化了 CSS 的书写，进而提高性能
+- 优化了 友链 页面中 链接的显示效果
+- 优化了 评论内容 的整体显示效果
+- 优化了 图片 的显示效果
 
 ## 功能与特性
 
