@@ -132,8 +132,7 @@ $comment = spam_protection_pre($comment, $post, $result);
 function spam_protection_math(){
     $num1=rand(1,25);
     $num2=rand(1,25);
-    echo "<label class=\"required\">请输入 <code>$num1</code> + <code>$num2</code> 的计算结果：</label>";
-    echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" placeholder=\"验证码\">\n";
+    echo "<code>$num1</code> + <code>$num2</code> = <input type=\"text\" name=\"sum\" class=\"text\" value=\"\" maxlength=\"2\">\n";
     echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
     echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
 }
