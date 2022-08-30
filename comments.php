@@ -10,7 +10,7 @@
     $commentLevelClass = $comments->_levels > 0 ? ' comment-child' : ' comment-parent';
 ?>
  
-<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
+<div id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
 if ($comments->levels > 0) {
     echo ' comment-child';
     $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
@@ -39,9 +39,10 @@ echo $commentClass;
         <?php $comments->threadedComments($options); ?>
     </div>
 <?php } ?>
-</li>
-
+</div>
+<br>
 <?php } ?>
+
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
