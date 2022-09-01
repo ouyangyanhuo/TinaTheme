@@ -75,8 +75,8 @@ echo $commentClass;
             </p>
             <?php endif; ?>
     		<p style="float:right">
-                <button type="submit" id="submit" class="submit"><?php _e('提交评论'); ?></button>
                 <button type="reset" id="submit" class="submit"><?php _e('清空内容'); ?></button>
+                <button type="submit" id="submit" class="submit"><?php _e('提交评论'); ?></button>
             </p>
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
