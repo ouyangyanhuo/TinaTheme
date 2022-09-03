@@ -132,8 +132,7 @@ $comment = spam_protection_pre($comment, $post, $result);
 function spam_protection_math(){
     $num1=rand(1,25);
     $num2=rand(1,25);
-    echo "<label class=\"required\">请输入 <code>$num1</code> + <code>$num2</code> 的计算结果：</label>";
-    echo "<input type=\"text\" name=\"sum\" class=\"text\" value=\"\" placeholder=\"验证码\">\n";
+    echo "<code>$num1</code> + <code>$num2</code> = <input type=\"text\" name=\"sum\" class=\"text\" value=\"\" maxlength=\"2\">\n";
     echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
     echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
 }
@@ -192,40 +191,120 @@ function word_count($cid){
      * 上一篇文章、下一篇文章输出修订
      * 为了在 a 标签的内容中同时兼容文章标题和其它内容所写
      */
-    function prev_post($archive) {
-        $db = Typecho_Db::get();
-        $content = $db->fetchRow($db->select()
-                ->from('table.contents')
-                ->where('table.contents.created < ?', $archive->created)
-                ->where('table.contents.status = ?', 'publish')
-                ->where('table.contents.type = ?', $archive->type)
-                ->where('table.contents.password IS NULL')
-                ->order('table.contents.created', Typecho_Db::SORT_DESC)
-                ->limit(1));
-        if ($content) {
-            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
-            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Previous</span>' . $content['title'] . '</a>';
-        }
-        else {
-            echo '';
-        }
+function prev_post($archive) {
+    $db = Typecho_Db::get();
+    $content = $db->fetchRow($db->select()
+            ->from('table.contents')
+            ->where('table.contents.created < ?', $archive->created)
+            ->where('table.contents.status = ?', 'publish')
+            ->where('table.contents.type = ?', $archive->type)
+            ->where('table.contents.password IS NULL')
+            ->order('table.contents.created', Typecho_Db::SORT_DESC)
+            ->limit(1));
+    if ($content) {
+        $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+        echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Previous</span>' . $content['title'] . '</a>';
     }
+    else {
+        echo '';
+    }
+}
     
-    function next_post($archive) {
-        $db = Typecho_Db::get();
-        $content = $db->fetchRow($db->select()
-                ->from('table.contents')
-                ->where('table.contents.created > ? AND table.contents.created < ?', $archive->created, Helper::options()->gmtTime)
-                ->where('table.contents.status = ?', 'publish')
-                ->where('table.contents.type = ?', $archive->type)
-                ->where('table.contents.password IS NULL')
-                ->order('table.contents.created', Typecho_Db::SORT_ASC)
-                ->limit(1));
-        if ($content) {
-            $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
-            echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Next</span>' . $content['title'] . '</a>';
-        }
-        else {
-            echo '';
-        }
+function next_post($archive) {
+    $db = Typecho_Db::get();
+    $content = $db->fetchRow($db->select()
+            ->from('table.contents')
+            ->where('table.contents.created > ? AND table.contents.created < ?', $archive->created, Helper::options()->gmtTime)
+            ->where('table.contents.status = ?', 'publish')
+            ->where('table.contents.type = ?', $archive->type)
+            ->where('table.contents.password IS NULL')
+            ->order('table.contents.created', Typecho_Db::SORT_ASC)
+            ->limit(1));
+    if ($content) {
+        $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
+        echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Next</span>' . $content['title'] . '</a>';
     }
+    else {
+        echo '';
+    }
+}
+    /**
+     * TinaTheme - CDN Supports
+     * 换静态资源库
+     */
+function staticUrl($file = ''){
+    $lists = explode("\r\n", Helper::options()->cjCDNlink);
+    $cjCDNlinks = [
+        'jquery.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js',
+            'custom' => isset($lists[0]) ? $lists[0] : ''
+        ],
+        'jquery.fancybox.min.css' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css',
+            'jd' => 'cdn.jsdelivr.net/npm/fancybox@3.0.1/dist/css/jquery.fancybox.css',
+            'custom' => isset($lists[1]) ? $lists[1] : ''
+        ],
+        'jquery.fancybox.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/fancybox@3.0.1/dist/js/jquery.fancybox.min.js',
+            'custom' => isset($lists[2]) ? $lists[2] : ''
+        ],
+        'androidstudio.min.css' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/styles/androidstudio.min.css',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/androidstudio.min.css',
+            'jd' => 'cdn.jsdelivr.net/npm/highlight.js@11.6.0/styles/androidstudio.css',
+            'custom' => isset($lists[3]) ? $lists[3] : ''
+        ],
+        'highlight.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/highlight.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js',
+            'jd' => 'cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js',
+            'custom' => isset($lists[4]) ? $lists[4] : ''
+        ],
+        'katex.min.css' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/katex.min.css',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css',
+            'jd' => 'cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css',
+            'custom' => isset($lists[5]) ? $lists[5] : ''
+        ],
+        'katex.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/katex.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js',
+            'custom' => isset($lists[6]) ? $lists[6] : ''
+        ],
+        'auto-render.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js',
+            'custom' => isset($lists[7]) ? $lists[7] : ''
+        ],
+        'tex-mml-chtml.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js',
+            'custom' => isset($lists[8]) ? $lists[8] : ''
+        ],
+        'nprogress.min.css' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.css',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css',
+            'jd' => 'cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css',
+            'custom' => isset($lists[9]) ? $lists[9] : ''
+        ],
+        'nprogress.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js',
+            'custom' => isset($lists[10]) ? $lists[10] : ''
+        ]
+    ];
+    if (isset($cjCDNlinks[$file])) {
+        $links = $cjCDNlinks[$file];
+        $which = Helper::options()->cjCDN;
+    } else return '';
+    return isset($links[$which]) ? '//' . $links[$which] : '';
+}

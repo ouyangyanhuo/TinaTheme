@@ -51,6 +51,7 @@
         <div class="alert info">已关闭全局评论。</div>
     </div>
     <?php endif; ?>
+    <br><br>
     <div class="container">
         <nav class="flex container suggested">
             <?php prev_post($this);?>

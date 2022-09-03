@@ -29,12 +29,34 @@ function themeConfig($form) {
     );
     $form->addInput($cursor);
     
-    /* 网站功能 */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站功能</h2>'));
+    /* Link */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
     $TheNotice->input->setAttribute('style', 'display:none');
     $form->addInput($TheNotice);
     
-	$compressHtml = new Typecho_Widget_Helper_Form_Element_Radio(
+    $alink = new Typecho_Widget_Helper_Form_Element_Text('alink', NULL, NULL, _t('顶部按钮链接'), _t('在Articles按钮旁边出现的按钮的链接，可以用做友链等内容，不填则代表不启用，且下一项内容不会显示'));
+    $form->addInput($alink);
+    
+    $alink_name = new Typecho_Widget_Helper_Form_Element_Text('alink_name', NULL, NULL, _t('顶部按钮名称'), _t('在Articles按钮旁边出现的按钮的文字，可以用做友链等内容，不填则代表不显示文字，若上一项已填，不建议不填文字。'));
+    $form->addInput($alink_name);
+    
+     /* Notice */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>内容设置 <small>Contents</small></h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $Notice = new Typecho_Widget_Helper_Form_Element_Textarea('Notice', NULL, NULL, _t('网站首页公告'), _t('支持HTML语法，但不建议使用HTML语法。不填则代表为默认内容。'));
+    $form->addInput($Notice);
+    
+    $FooterHTML = new Typecho_Widget_Helper_Form_Element_Textarea('FooterHTML', NULL, NULL, _t('自定义页脚内容'), _t('支持HTML语法。不填则代表为空。'));
+    $form->addInput($FooterHTML);
+    
+    /* 速度优化 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>速度优化</h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
+    
+    $compressHtml = new Typecho_Widget_Helper_Form_Element_Radio(
         'compressHtml',
         array(
             1 => _t('启用'),
@@ -45,6 +67,45 @@ function themeConfig($form) {
         _t('默认关闭，启用则会对HTML代码进行压缩，可能与部分插件存在兼容问题，请酌情选择开启或者关闭')
     );
     $form->addInput($compressHtml);
+    
+    $GravatarUrl = new Typecho_Widget_Helper_Form_Element_Radio('GravatarUrl', 
+    array
+    (
+        false => _t('官方源'),
+        'https://cdn.helingqi.com/avatar/' => _t('禾令奇源'),
+        'https://sdn.geekzu.org/avatar/' => _t('极客族源'),
+        'https://dn-qiniu-avatar.qbox.me/avatar/' => _t('七牛源')
+	),
+	'https://cdn.helingqi.com/avatar/', _t('Gravatar头像源'), _t('默认禾令奇源'));
+	$form->addInput($GravatarUrl);
+    
+    $cjCDN = new Typecho_Widget_Helper_Form_Element_Radio(
+        'cjCDN',
+        array(
+            'bc' => _t('BootCDN'),
+            'cf' => _t('CDNJS'),
+            'jd' => _t('jsDelivr'),
+            'custom' => _t('自建')
+        ),
+        'bc',
+        _t('公共静态资源来源'),
+        _t('默认BootCDN，请根据需求选择合适来源')
+    );
+    $form->addInput($cjCDN);
+
+    $cjCDNlink = new Typecho_Widget_Helper_Form_Element_Textarea(
+        'cjCDNlink',
+        null,
+        null,
+        _t('公共静态资源自建地址'),
+        _t('只在上面的选项选择自建时需要。')
+    );
+    $form->addInput($cjCDNlink);
+    
+    /* 网站功能 */
+    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站功能</h2>'));
+    $TheNotice->input->setAttribute('style', 'display:none');
+    $form->addInput($TheNotice);
     
     $JqueryControl = new Typecho_Widget_Helper_Form_Element_Radio(
         'JqueryControl',
@@ -118,17 +179,6 @@ function themeConfig($form) {
         _t('用于对数学公式的渲染')
     );
     $form->addInput($MathRender);
-
-    /* Link */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>Link</h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-    $alink = new Typecho_Widget_Helper_Form_Element_Text('alink', NULL, NULL, _t('顶部按钮链接'), _t('在Articles按钮旁边出现的按钮的链接，可以用做友链等内容，不填则代表不启用，且下一项内容不会显示'));
-    $form->addInput($alink);
-    
-    $alink_name = new Typecho_Widget_Helper_Form_Element_Text('alink_name', NULL, NULL, _t('顶部按钮名称'), _t('在Articles按钮旁边出现的按钮的文字，可以用做友链等内容，不填则代表不显示文字，若上一项已填，不建议不填文字。'));
-    $form->addInput($alink_name);
     
     /* 评论 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>评论 <small>Comments</small></h2>'));
@@ -158,33 +208,6 @@ function themeConfig($form) {
         _t('评论区的加减法验证系统，关闭后反垃圾评论效果降低。')
     );
     $form->addInput($TheVerification);
-
-    $GravatarUrl = new Typecho_Widget_Helper_Form_Element_Radio('GravatarUrl', 
-    array
-    (
-        false => _t('官方源'),
-        'https://cdn.helingqi.com/avatar/' => _t('禾令奇源'),
-        'https://sdn.geekzu.org/avatar/' => _t('极客族源'),
-        'https://dn-qiniu-avatar.qbox.me/avatar/' => _t('七牛源')
-	),
-	'https://cdn.helingqi.com/avatar/', _t('Gravatar头像源'), _t('默认禾令奇源'));
-	$form->addInput($GravatarUrl);
-    
-     /* Notice */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>网站公告 <small>Notice</small></h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-    $Notice = new Typecho_Widget_Helper_Form_Element_Textarea('Notice', NULL, NULL, _t('网站首页公告'), _t('支持HTML语法，但不建议使用HTML语法。不填则代表为默认内容。'));
-    $form->addInput($Notice);
-    
-    /* Footer */
-    $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>页脚 <small>Notice</small></h2>'));
-    $TheNotice->input->setAttribute('style', 'display:none');
-    $form->addInput($TheNotice);
-    
-    $FooterHTML = new Typecho_Widget_Helper_Form_Element_Textarea('FooterHTML', NULL, NULL, _t('自定义页脚内容'), _t('支持HTML语法。不填则代表为空。'));
-    $form->addInput($FooterHTML);
     
     /* 深色模式 */
     $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>深色模式 <small>Dark Mode</small></h2>'));
