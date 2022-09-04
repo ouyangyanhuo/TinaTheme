@@ -88,10 +88,6 @@ TinaTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/TinaTheme/blob/main/
 
 您可以删除页脚的作者版权信息，但是不能删除 TinaTheme 主题的名称及其指向链接。
 
-## 捐赠
-
-如果您很喜欢这个主题，不妨[捐赠](https://www.verypoor.cn)一下我，这样有助于我更高效的开发
-
 ## 下载渠道
 
 1.GitHub [https://github.com/ouyangyanhuo/TinaTheme](https://github.com/ouyangyanhuo/TinaTheme)  适合国外（主仓库）
