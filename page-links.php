@@ -50,5 +50,5 @@
             <div class="alert info">已关闭全局评论。</div>
         </div>
         <?php endif; ?>
-</main>
+</main><br><br>
 <?php $this->need('footer.php'); ?>

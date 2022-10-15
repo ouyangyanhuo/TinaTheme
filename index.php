@@ -2,11 +2,11 @@
 /**
  * 移植自<a href="https://limxw.com/" target="_blank">WingLim</a>的<a href="https://github.com/WingLim/hugo-tania" target="_blank">hugo-tania</a>主题，在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
  * <hr><div style="width:fit-content" id="TinaTheme">版本检测中...&nbsp;</div>
- * <script>var simversion="2.0.2";var buildversion = "221001";function update_detec(){var container=document.getElementById("TinaTheme");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://assets.fmcf.cc/Theme/tina.json");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.Build;if(newest>buildversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
+ * <script>var simversion="2.1.0";var buildversion = "21015";function update_detec(){var container=document.getElementById("TinaTheme");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://assets.fmcf.cc/Theme/tina_update.json");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.Build;if(newest>buildversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
  * 
  * @package Tina Theme
  * @author Magneto
- * @version 2.0.2
+ * @version 2.1.0
  * @link https://www.fmcf.cc
  */
 
