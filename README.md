@@ -10,15 +10,6 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 </div>
 
-## 年少之梦
-
-<div align="center">
-
-本项目及开发者已加入 [「年少之梦」](https://www.teendreams.cn) 组织
-
-<a href="https://www.teendreams.cn/" target="_blank" ><img width="100px" height="100px" src="https://s2.loli.net/2022/07/21/MmO4cGWazgjrlTd.png"></a>
-</div>
-
 ## TinaTheme
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
@@ -26,7 +17,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 <div align="center">
     
 [![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-2.0.2-criticale)
+![Version](https://img.shields.io/badge/Version-2.1.0-criticale)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
@@ -37,15 +28,16 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
-- 调整 更新检测源
-- 修复 更新检测时检测不到新版本的Bug
-- 修复 友链 页面的 页脚 对齐Bug
 - 优化 CSS 性能
-- 优化 友链 页面的 链接 显示
-- 更改 小屏模式 下 头部 的颜色，黑 → 白
-- 修复 页脚按钮 在 hover 状态下显示遮挡的问题
-- 优化 项目推荐 内容描述的字体显示
 - 优化 页脚按钮 显示内容
+- 优化 友链 页面的 链接 显示
+- 优化 项目推荐 内容描述的字体显示
+- 修复 友链 页面的 页脚 对齐Bug
+- 修复 更新检测时检测不到新版本的Bug
+- 修复 页脚按钮 在 hover 状态下显示遮挡的问题
+- 更改 小屏模式 下 头部 的颜色，黑 → 白
+- 调整 更新检测源
+
 ## 功能与特性
 
 - 简洁风格
