@@ -1,14 +1,4 @@
 <footer class="footer flex">
-/*
- * @Author: Magneto github.com:ouyangyanhuo
- * @Date: 2022-10-30 13:26:17
- * @LastEditors: {{ouyangyanhuo}} {{ouyangyanhuo@vip.qq.com}}
- * @LastEditTime: 2022-11-19 19:09:58
- * @FilePath: \TinaTheme\footer.php
- * @Description: 
- * EMail:magneto@88.com
- * Copyright (c) 2022 by Magneto, All Rights Reserved. 
- */
     <section class="container">
         <nav class="footer-links">
             <p><center>Copyright © 2021- <?php echo date("Y"); ?> Magneto<br>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
@@ -21,11 +11,11 @@
     <link rel="stylesheet" href="<?= staticUrl('katex.min.css') ?>">
     <script src="<?= staticUrl('katex.min.js') ?>"></script>
     <script src="<?= staticUrl('auto-render.min.js') ?>"></script>
-    <script>$(document).on('pjax:complete',function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})});</script>
+    <script src="<?php $this->options->themeUrl('/assets/js/katex.support.js'); ?>"></script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'MathJax'): ?>
-    <script src="<?= staticUrl('tex-mml-chtml.min.js') ?>"></script>
     <script type="text/javascript">window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],}};</script>
+    <script src="<?= staticUrl('tex-mml-chtml.min.js') ?>"></script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>

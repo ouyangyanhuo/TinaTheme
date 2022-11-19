@@ -1,14 +1,4 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-/*
- * @Author: Magneto github.com:ouyangyanhuo
- * @Date: 2022-10-30 13:26:17
- * @LastEditors: {{ouyangyanhuo}} {{ouyangyanhuo@vip.qq.com}}
- * @LastEditTime: 2022-11-19 19:03:46
- * @FilePath: \TinaTheme\header.php
- * @Description: 
- * EMail:magneto@88.com
- * Copyright (c) 2022 by Magneto, All Rights Reserved. 
- */
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -41,7 +31,7 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= staticUrl('androidstudio.min.css') ?>"/>
     <script src="<?= staticUrl('highlight.min.js') ?>"></script>
-    <script>$(document).on('pjax:complete',function(){hljs.initHighlightingOnLoad()});</script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <?php if ($this->options->JqueryControl): ?>
     <script src="<?= staticUrl('jquery.min.js') ?>"></script>
     <?php endif; ?>
