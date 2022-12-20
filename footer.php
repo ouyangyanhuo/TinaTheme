@@ -1,21 +1,11 @@
 <footer class="footer flex">
-/*
- * @Author: Magneto github.com:ouyangyanhuo
- * @Date: 2022-10-30 13:26:17
- * @LastEditors: {{ouyangyanhuo}} {{ouyangyanhuo@vip.qq.com}}
- * @LastEditTime: 2022-11-19 19:09:58
- * @FilePath: \TinaTheme\footer.php
- * @Description: 
- * EMail:magneto@88.com
- * Copyright (c) 2022 by Magneto, All Rights Reserved. 
- */
     <section class="container">
+        <?php if ($this->options->FooterHTML): ?>
+            <?php $this->options->FooterHTML() ?>
+        <?php endif; ?>
         <nav class="footer-links">
             <p><center>Copyright © 2021- <?php echo date("Y"); ?> Magneto<br>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
         </nav>
-            <?php if ($this->options->FooterHTML): ?>
-            <?php $this->options->FooterHTML() ?>
-            <?php endif; ?>
     </section>
     <?php if ($this->options->MathRender == 'KaTeX'): ?>
     <link rel="stylesheet" href="<?= staticUrl('katex.min.css') ?>">
