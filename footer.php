@@ -7,15 +7,19 @@
             <p><center>Copyright © 2021- <?php echo date("Y"); ?> Magneto<br>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
         </nav>
     </section>
+    <!--KaTeX-->
     <?php if ($this->options->MathRender == 'KaTeX'): ?>
     <link rel="stylesheet" href="<?= staticUrl('katex.min.css') ?>">
     <script src="<?= staticUrl('katex.min.js') ?>"></script>
     <script src="<?= staticUrl('auto-render.min.js') ?>"></script>
+    <!--KaTeX FOR PJAX-->
     <script>$(document).on('pjax:complete',function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})});</script>
     <?php endif; ?>
+    <!--MathJax-->
     <?php if ($this->options->MathRender == 'MathJax'): ?>
     <script src="<?= staticUrl('tex-mml-chtml.min.js') ?>"></script>
-    <script type="text/javascript">$(document).on('pjax:end',function(){MathJax.Hub.Config({tex:{inlineMath:[['$','$'],['\\(','\\)']],}});MathJax.Hub.Queue(["Typeset",MathJax.Hub])});</script>
+    <!--MathJax FOR PJAX-->
+    <script type="text/javascript">$(document).ready(function(){MathJax.Hub.Config({tex:{inlineMath:[['$','$'],['\\(','\\)']],}});MathJax.Hub.Queue(["Typeset",MathJax.Hub])});</script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
@@ -26,7 +30,7 @@
   <link href="<?= staticUrl('nprogress.min.css') ?>" rel="stylesheet">
   <script src="<?= staticUrl('nprogress.min.js') ?>"></script>
   </div>
-  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done()});</script>
+  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){})});</script>
 <?php endif; ?>
 </body>
 <?php if ($this->options->cursor): ?>
