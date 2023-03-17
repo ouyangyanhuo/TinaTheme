@@ -16,8 +16,9 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 <div align="center">
     
-[![AdminMD](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
-![Version](https://img.shields.io/badge/Version-2.1.0-criticale)
+[![TinaTheme](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/2021/08/47/)
+![Version](https://img.shields.io/badge/Version-2.1.1-criticale)
+![PHP](https://img.shields.io/badge/PHP-7.4-brightgreen)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
@@ -28,15 +29,10 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
-- 优化 CSS 性能
-- 优化 页脚按钮 显示内容
-- 优化 友链 页面的 链接 显示
-- 优化 项目推荐 内容描述的字体显示
-- 修复 友链 页面的 页脚 对齐Bug
-- 修复 更新检测时检测不到新版本的Bug
-- 修复 页脚按钮 在 hover 状态下显示遮挡的问题
-- 更改 小屏模式 下 头部 的颜色，黑 → 白
-- 调整 更新检测源
+- 调整了 自定义页脚部分的位置
+- 更改为原版 Jquery Pjax 进行加载
+- 使用原版 Jquery Pjax 进行加载后，支持了MathJax的加载
+- 使用原版 Jquery Pjax 进行加载后，支持了对夜间模式的正常加载
 
 ## 功能与特性
 
@@ -91,9 +87,9 @@ TinaTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/TinaTheme/blob/main/
 2.取消 Gitee 下载 因为它真的比 Shit 还烂，Gitee仓库会保留，但不会同步、更新。
 
 ## 预览图
-![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8mys6rj340e256kjl.jpg)
-![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8ls0w1j340e2561ky.jpg)
-![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8ktiopj31x20ysgys.jpg)
-![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8k558gj31x20ysqgq.jpg)
-![](https://tva4.sinaimg.cn/large/008aATBzly1h4lu8l3r4mj31x20ys4ec.jpg)
-![](https://tva4.sinaimg.cn/large/008aATBzly1h763e5sccdj34vc2jsu10.jpg)
+![](https://pic1.zhimg.com/80/v2-c3d9c9458bdc2e12ceef006c3192687d_720w.jpeg)
+![](https://picx.zhimg.com/80/v2-0d04d14df7fb1d533e95c561a85e071b_720w.jpeg)
+![](https://picx.zhimg.com/80/v2-2e9bff0db4dc6a129d77a3b017e04266_720w.jpeg)
+![](https://picx.zhimg.com/80/v2-d7d0e6115507a8dbb106865cfb4e8b83_720w.jpeg)
+![](https://picx.zhimg.com/80/v2-4db906b3d9271dbe27340d5d5f3658b8_720w.jpeg)
+![](https://picx.zhimg.com/80/v2-0d04d14df7fb1d533e95c561a85e071b_720w.jpeg)
