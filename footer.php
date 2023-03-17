@@ -15,7 +15,7 @@
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'MathJax'): ?>
     <script src="<?= staticUrl('tex-mml-chtml.min.js') ?>"></script>
-    <script type="text/javascript">window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],}};</script>
+    <script type="text/javascript">$(document).on('pjax:end',function(){MathJax.Hub.Config({tex:{inlineMath:[['$','$'],['\\(','\\)']],}});MathJax.Hub.Queue(["Typeset",MathJax.Hub])});</script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
