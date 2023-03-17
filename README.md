@@ -16,7 +16,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 <div align="center">
     
-[![TinaTheme](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/technology/523/)
+[![TinaTheme](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/2021/08/47/)
 ![Version](https://img.shields.io/badge/Version-2.1.1-criticale)
 ![PHP](https://img.shields.io/badge/PHP-7.4-brightgreen)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
