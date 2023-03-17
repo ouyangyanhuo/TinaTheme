@@ -300,6 +300,12 @@ function staticUrl($file = ''){
             'cf' => 'cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js',
             'jd' => 'cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js',
             'custom' => isset($lists[10]) ? $lists[10] : ''
+        ],
+        'jquery.pjax.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js',
+            'custom' => isset($lists[11]) ? $lists[11] : ''
         ]
     ];
     if (isset($cjCDNlinks[$file])) {

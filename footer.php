@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="<?= staticUrl('katex.min.css') ?>">
     <script src="<?= staticUrl('katex.min.js') ?>"></script>
     <script src="<?= staticUrl('auto-render.min.js') ?>"></script>
-    <!--KaTeX FOR PJAX-->
-    <script>$(document).on('pjax:complete',function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})});</script>
+    <script>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});</script>
     <?php endif; ?>
     <!--MathJax-->
     <?php if ($this->options->MathRender == 'MathJax'): ?>
@@ -26,7 +25,7 @@
     <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
 </footer>
 <?php if ($this->options->WebPjax): ?>
-  <script src="<?php $this->options->themeUrl('/assets/js/pjax.min.js'); ?>"></script>
+  <script src="<?= staticUrl('jquery.pjax.min.js') ?>"></script>
   <link href="<?= staticUrl('nprogress.min.css') ?>" rel="stylesheet">
   <script src="<?= staticUrl('nprogress.min.js') ?>"></script>
   </div>
