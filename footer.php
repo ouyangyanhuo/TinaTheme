@@ -35,6 +35,7 @@
 <?php if ($this->options->cursor): ?>
   <script src="<?php $this->options->themeUrl('/assets/js/cursor.js'); ?>" data-enable-footnotes="true"></script>
 <?php endif; ?>
+<?php $this->footer(); ?>
 </html>
 <?php /* 来自 MDr | HTML 压缩 */
 if ($this->options->compressHtml) {
