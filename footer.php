@@ -1,4 +1,14 @@
 <footer class="footer flex">
+/*
+ * @Author: Magneto github.com:ouyangyanhuo
+ * @Date: 2023-06-08 10:43:31
+ * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @LastEditTime: 2023-06-08 11:18:36
+ * @FilePath: \AdminMDf:\Github Projects\TinaTheme\footer.php
+ * @Description: 
+ * EMail:magneto@88.com
+ * Copyright (c) 2023 by Magneto, All Rights Reserved. 
+ */
     <section class="container">
         <?php if ($this->options->FooterHTML): ?>
             <?php $this->options->FooterHTML() ?>
@@ -33,7 +43,16 @@
 <?php endif; ?>
 </body>
 <?php if ($this->options->cursor): ?>
-  <script src="<?php $this->options->themeUrl('/assets/js/cursor.js'); ?>" data-enable-footnotes="true"></script>
+<?php
+$ua = $_SERVER['HTTP_USER_AGENT'];
+$is_mobile = preg_match('/(iPhone|iPad|iPod|Android|BlackBerry|Windows Phone)/i', $ua);
+$mobile = $is_mobile ? true : false;
+if ($mobile == false) {
+   echo '<script src="';
+   $this->options->themeUrl('/assets/js/cursor.js');
+   echo '" data-enable-footnotes="true"></script>';
+}
+?>
 <?php endif; ?>
 <?php $this->footer(); ?>
 </html>
