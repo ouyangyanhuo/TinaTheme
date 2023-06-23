@@ -6,7 +6,7 @@
  * 
  * @package Tina Theme
  * @author Magneto
- * @version Build30608-Dev-No.5
+ * @version 2.1.2
  * @link https://www.fmcf.cc
  */
 
