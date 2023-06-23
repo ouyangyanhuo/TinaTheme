@@ -1,3 +1,13 @@
+<!--
+ * @Author: Magneto github.com:ouyangyanhuo
+ * @Date: 2023-06-08 10:43:31
+ * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @LastEditTime: 2023-06-23 17:09:22
+ * @FilePath: \AdminMDf:\Github Projects\TinaTheme\README.md
+ * @Description: 
+ * EMail:magneto@88.com
+ * Copyright (c) 2023 by Magneto, All Rights Reserved. 
+-->
 <p align="center">
     <img src="https://tva4.sinaimg.cn/large/008aATBzgy1h4k9e3x97nj30qe0qetd8.jpg" width="200" height="200" alt="Haku">
 </p>
@@ -30,4 +40,4 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 最近版本更新日志
 - ✨ 新增对鼠标美化的UA检测，手机端将不再显示
-- ✨ 新增代码块复制功能，仍在测试，没有写样式
+- ✨ 新增代码块复制功能
