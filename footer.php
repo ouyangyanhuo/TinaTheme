@@ -3,7 +3,7 @@
  * @Author: Magneto github.com:ouyangyanhuo
  * @Date: 2023-06-08 10:43:31
  * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @LastEditTime: 2023-06-08 11:18:36
+ * @LastEditTime: 2023-06-23 11:52:50
  * @FilePath: \AdminMDf:\Github Projects\TinaTheme\footer.php
  * @Description: 
  * EMail:magneto@88.com
@@ -33,13 +33,14 @@
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
     <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
+    <script src="<?php $this->options->themeUrl(); ?>/assets/js/codecopy.js"></script>
 </footer>
 <?php if ($this->options->WebPjax): ?>
   <script src="<?= staticUrl('jquery.pjax.min.js') ?>"></script>
   <link href="<?= staticUrl('nprogress.min.css') ?>" rel="stylesheet">
   <script src="<?= staticUrl('nprogress.min.js') ?>"></script>
   </div>
-  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){})});</script>
+  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){});$.getScript('<?php $this->options->themeUrl('/assets/js/codecopy.js'); ?>', function() {})});</script>
 <?php endif; ?>
 </body>
 <?php if ($this->options->cursor): ?>
