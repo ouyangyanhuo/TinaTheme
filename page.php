@@ -30,7 +30,7 @@
             <?php if ($this->options->fancybox): ?>
             <?php
                 $pattern = '/\<img.*?src\=\"(.*?)\".*?alt\=\"(.*?)\".*?title\=\"(.*?)\"[^>]*>/i';
-                $replacement = '<a href="$1" data-fancybox="gallery" /><img src="$1" alt="$2" title="$3"></a>';
+                $replacement = '<a href="$1" data-fancybox="gallery" /><img class="lazy" data-original="$1" alt="$2" title="$3"></a>';
                 $content = preg_replace($pattern, $replacement, $this->content);
                 echo getContentTest($this->content);
             ?>

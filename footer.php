@@ -4,7 +4,7 @@
             <?php $this->options->FooterHTML() ?>
         <?php endif; ?>
         <nav class="footer-links">
-            <p><center>Copyright © 2021- <?php echo date("Y"); ?> Magneto<br>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
+            <p><center>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
         </nav>
     </section>
     <!--KaTeX-->
@@ -23,17 +23,27 @@
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
     <script src="<?php $this->options->themeUrl('/assets/js/features.js'); ?>" data-enable-footnotes="true"></script>
+    <script src="<?php $this->options->themeUrl(); ?>/assets/js/codecopy.js"></script>
 </footer>
 <?php if ($this->options->WebPjax): ?>
   <script src="<?= staticUrl('jquery.pjax.min.js') ?>"></script>
   <link href="<?= staticUrl('nprogress.min.css') ?>" rel="stylesheet">
   <script src="<?= staticUrl('nprogress.min.js') ?>"></script>
   </div>
-  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){})});</script>
+  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){});$.getScript('<?php $this->options->themeUrl('/assets/js/codecopy.js'); ?>', function() {})});</script>
 <?php endif; ?>
 </body>
 <?php if ($this->options->cursor): ?>
-  <script src="<?php $this->options->themeUrl('/assets/js/cursor.js'); ?>" data-enable-footnotes="true"></script>
+<?php
+$ua = $_SERVER['HTTP_USER_AGENT'];
+$is_mobile = preg_match('/(iPhone|iPad|iPod|Android|BlackBerry|Windows Phone)/i', $ua);
+$mobile = $is_mobile ? true : false;
+if ($mobile == false) {
+   echo '<script src="';
+   $this->options->themeUrl('/assets/js/cursor.js');
+   echo '" data-enable-footnotes="true"></script>';
+}
+?>
 <?php endif; ?>
 <?php $this->footer(); ?>
 </html>

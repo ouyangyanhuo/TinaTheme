@@ -25,7 +25,7 @@ function themeConfig($form) {
         ),
         0,
         _t('鼠标美化'),
-        _t('开启后电脑端网页会对鼠标进行美化，默认关闭)')
+        _t('开启后电脑端网页会对鼠标进行美化，手机端不会美化，默认关闭。')
     );
     $form->addInput($cursor);
     
@@ -98,7 +98,7 @@ function themeConfig($form) {
         null,
         null,
         _t('公共静态资源自建地址'),
-        _t('只在上面的选项选择自建时需要。')
+        _t('只在上面的选项选择自建时需要，<a href="https://tina.docs.fmcf.cc/optimization/public_cdn/" target="_blank">[查看建规则]</a>')
     );
     $form->addInput($cjCDNlink);
     
@@ -115,7 +115,7 @@ function themeConfig($form) {
         ),
         1,
         _t('JqueryControl'),
-        _t('默认开启，<font color="#ed5a65">如果要使用PJAX、Fancybox必须开启 Jquery 控件！</font>')
+        _t('默认开启，<font color="#ed5a65">如果要使用PJAX、Fancybox、Lazyload必须开启 Jquery 控件！</font>')
     );
     $form->addInput($JqueryControl);
 
@@ -126,7 +126,7 @@ function themeConfig($form) {
             0 => _t('关闭')
         ),
         1,
-        _t('图片灯箱'),
+        _t('图片灯箱及Lazyload'),
         _t('默认开启，启用后可以优化图片浏览的体验')
     );
     $form->addInput($fancybox);

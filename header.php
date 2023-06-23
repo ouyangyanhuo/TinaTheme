@@ -38,6 +38,7 @@
     <?php if ($this->options->fancybox): ?>
     <link href="<?= staticUrl('jquery.fancybox.min.css') ?>" rel="stylesheet">
     <script src="<?= staticUrl('jquery.fancybox.min.js') ?>"></script>
+    <script src="<?= staticUrl('jquery.lazyload.min.js') ?>"></script>
     <?php endif; ?>
 </head>
 <body>
