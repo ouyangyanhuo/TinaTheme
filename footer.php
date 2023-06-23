@@ -1,14 +1,4 @@
 <footer class="footer flex">
-/*
- * @Author: Magneto github.com:ouyangyanhuo
- * @Date: 2023-06-08 10:43:31
- * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @LastEditTime: 2023-06-23 11:52:50
- * @FilePath: \AdminMDf:\Github Projects\TinaTheme\footer.php
- * @Description: 
- * EMail:magneto@88.com
- * Copyright (c) 2023 by Magneto, All Rights Reserved. 
- */
     <section class="container">
         <?php if ($this->options->FooterHTML): ?>
             <?php $this->options->FooterHTML() ?>

@@ -306,6 +306,12 @@ function staticUrl($file = ''){
             'cf' => 'cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js',
             'jd' => 'cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js',
             'custom' => isset($lists[11]) ? $lists[11] : ''
+        ],
+        'jquery.lazyload.min.js' => [
+            'bc' => 'cdn.bootcdn.net/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js',
+            'cf' => 'cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js',
+            'jd' => 'cdn.jsdelivr.net/npm/jquery-lazyload@1.9.7/jquery.lazyload.min.js',
+            'custom' => isset($lists[12]) ? $lists[12] : ''
         ]
     ];
     if (isset($cjCDNlinks[$file])) {
