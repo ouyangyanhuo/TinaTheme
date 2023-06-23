@@ -32,3 +32,5 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 - ✨ 新增对鼠标美化的UA检测，手机端将不再显示
 - ✨ 新增代码块复制功能
 - ✨ 新增图片Lazyload，需开启Jquery，开启图片灯箱即可开启Lazyload
+- 精简底部版权信息
+- ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.docs.fmcf.cc/faq/)更新，以免资源失效

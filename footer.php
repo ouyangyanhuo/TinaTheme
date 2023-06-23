@@ -4,7 +4,7 @@
             <?php $this->options->FooterHTML() ?>
         <?php endif; ?>
         <nav class="footer-links">
-            <p><center>Copyright © 2021- <?php echo date("Y"); ?> Magneto<br>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
+            <p><center>Theme <a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</center></p>
         </nav>
     </section>
     <!--KaTeX-->
