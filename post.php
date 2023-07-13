@@ -1,14 +1,4 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-/*
- * @Author: Magneto github.com:ouyangyanhuo
- * @Date: 2023-06-08 10:43:31
- * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
- * @LastEditTime: 2023-06-23 18:11:52
- * @FilePath: \AdminMDf:\Github Projects\TinaTheme\post.php
- * @Description: 
- * EMail:magneto@88.com
- * Copyright (c) 2023 by Magneto, All Rights Reserved. 
- */
 <?php $this->need('header.php'); ?>
 <main>
     <div class="container">
