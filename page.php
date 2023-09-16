@@ -1,4 +1,14 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+/*
+ * @Author: Magneto github.com:ouyangyanhuo
+ * @Date: 2023-06-08 10:43:31
+ * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @LastEditTime: 2023-09-16 10:26:31
+ * @FilePath: \TinaTheme\page.php
+ * @Description: 
+ * EMail:magneto@88.com
+ * Copyright (c) 2023 by Magneto, All Rights Reserved. 
+ */
 <?php $this->need('header.php'); ?>
 <main>
     <div class="container">
@@ -41,10 +51,6 @@
         <?php if ($this->options->TheComments): ?>
         <div class="container">
             <?php $this->need('comments.php'); ?>
-        </div>
-        <?php else: ?>
-        <div class="container">
-            <div class="alert info">已关闭全局评论。</div>
         </div>
         <?php endif; ?>
     </div>
