@@ -29,5 +29,5 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近Dev版本更新日志
-- 新版本版本号：
+- 新版本版本号：2.1.3-Build40201
 - 删除了关闭全局评论的提示
