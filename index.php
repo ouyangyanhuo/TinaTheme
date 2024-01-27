@@ -6,7 +6,7 @@
  * 
  * @package Tina Theme
  * @author Magneto
- * @version 2.1.3-Build40201-Dev-1
+ * @version 2.1.3
  * @link https://www.fmcf.cc
  */
 
@@ -36,7 +36,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     </div>
     <div class="container">
         <section>
-            <h2>Latest Articles<?php if ($this->options->articles): ?><a class=section-button href="<?php $this->options->articles() ?>">View all</a><?php endif; ?></h2>
+            <h2>Latest Articles</h2>
             <div class="post">
                 <?php while($this->next()): ?>
                 <div class="post">
