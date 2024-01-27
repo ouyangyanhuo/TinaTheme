@@ -14,45 +14,12 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 一个为typecho移植的主题，源自于[hugo-tania](https://github.com/WingLim/hugo-tania)主题，原本是Hugo的主题，被移植到Typecho上在其基础上进行了深度修改的 TinaTheme 或许是你在Typecho上最好的选择
 
-<div align="center">
-    
-[![TinaTheme](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/2021/08/47/)
-![Version](https://img.shields.io/badge/Version-2.1.3-criticale)
-![PHP](https://img.shields.io/badge/PHP-7.4-brightgreen)
-![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
-![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/TinaTheme)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/TinaTheme)
-    
-</div>
-
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
 - 删除了 View All 按钮
 - 删除了关闭全局评论的提示
 - ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.docs.fmcf.cc/optimization/public_cdn/)更新，以免资源失效
-
-
-## 功能与特性
-
-- 简洁风格
-
-- 适配深色模式
-
-- HTML 原生自响应式布局
-
-- 超轻量
-
-- 高度自定义
-
-- 完善的后台设置系统
-
-- HighLight.js
-
-- Pjax
-
-欢迎提 Issues 和 PRs，欢迎提出建议
 
 ## 使用
 
