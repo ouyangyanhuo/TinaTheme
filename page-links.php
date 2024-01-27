@@ -45,10 +45,6 @@
         <div class="container">
             <?php $this->need('comments.php'); ?>
         </div>
-        <?php else: ?>
-        <div class="container">
-            <div class="alert info">已关闭全局评论。</div>
-        </div>
-        <?php endif; ?>
+    <?php endif; ?>
 </main><br><br>
 <?php $this->need('footer.php'); ?>

@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://tva4.sinaimg.cn/large/008aATBzgy1h4k9e3x97nj30qe0qetd8.jpg" width="200" height="200" alt="Haku">
+    <img src="/assets/favicon.ico" width="200" height="200" alt="Haku">
 </p>
 
 <div align="center">
@@ -17,7 +17,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 <div align="center">
     
 [![TinaTheme](https://img.shields.io/badge/Magneto-TinaTheme-brightgreen)](https://fmcf.cc/2021/08/47/)
-![Version](https://img.shields.io/badge/Version-2.1.2-criticale)
+![Version](https://img.shields.io/badge/Version-2.1.3-criticale)
 ![PHP](https://img.shields.io/badge/PHP-7.4-brightgreen)
 ![Repo-size](https://img.shields.io/github/languages/code-size/ouyangyanhuo/TinaTheme)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/TinaTheme)
@@ -29,10 +29,8 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
-- ✨ 新增对鼠标美化的UA检测，手机端将不再显示
-- ✨ 新增代码块复制功能
-- ✨ 新增图片Lazyload，需开启Jquery，开启图片灯箱即可开启Lazyload
-- 精简底部版权信息
+- 删除了 View All 按钮
+- 删除了关闭全局评论的提示
 - ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.docs.fmcf.cc/optimization/public_cdn/)更新，以免资源失效
 
 
@@ -77,16 +75,6 @@ TinaTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/TinaTheme/blob/main/
 您必须在页脚保留 TinaTheme 主题的名称及其指向链接，否则请不要使用 TinaTheme 主题。
 
 您可以删除页脚的作者版权信息，但是不能删除 TinaTheme 主题的名称及其指向链接。
-
-## 捐赠
-
-如果您很喜欢这个主题，不妨[捐赠](https://www.verypoor.cn)一下我，这样有助于我更高效的开发
-
-## 下载渠道
-
-1.GitHub [https://github.com/ouyangyanhuo/TinaTheme](https://github.com/ouyangyanhuo/TinaTheme)  适合国外（主仓库）
-
-2.取消 Gitee 下载 因为它真的比 Shit 还烂，Gitee仓库会保留，但不会同步、更新。
 
 ## 预览图
 ![](https://pic1.zhimg.com/80/v2-c3d9c9458bdc2e12ceef006c3192687d_720w.jpeg)
