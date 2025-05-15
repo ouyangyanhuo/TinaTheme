@@ -19,7 +19,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 ## 最近版本更新日志
 - 删除了 View All 按钮
 - 删除了关闭全局评论的提示
-- ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.docs.fmcf.cc/optimization/public_cdn/)更新，以免资源失效
+- ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.fmcf.cc/Docs/optimization/public_cdn/)更新，以免资源失效
 
 ## 使用
 
@@ -27,7 +27,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ## 文档
 
-TinaTheme 文档 : [https://tina.docs.fmcf.cc](https://tina.docs.fmcf.cc)
+TinaTheme 文档 : [https://tina.fmcf.cc/Docs](https://tina.fmcf.cc/Docs)
 
 ## Demo
 
