@@ -21,6 +21,27 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 - 删除了关闭全局评论的提示
 - ⚠️ TinaTheme 于 `2.1.2-Build30608-Dev-No.4` 版本更新了静态资源库，请自建静态资源的用户更新后及时比对[文档](https://tina.fmcf.cc/Docs/optimization/public_cdn/)更新，以免资源失效
 
+
+## 功能与特性
+
+- 简洁风格
+
+- 适配深色模式
+
+- HTML 原生自响应式布局
+
+- 超轻量
+
+- 高度自定义
+
+- 完善的后台设置系统
+
+- HighLight.js
+
+- Pjax
+
+欢迎提 Issues 和 PRs，欢迎提出建议
+
 ## 使用
 
 下载主题包并解压 ( 若是从 GitHub 或 Gitee 下载，请把解压出来的文件夹改名为 `TinaTheme` ) ，将文件夹上传至网站文件主题目录 ( `/usr/theme` ) 下，进入网站后台 - 控制台 - 外观 - 启用主题即可。
