@@ -126,8 +126,14 @@ function Links($short = false)
      * TinaTheme - Verification
      * 验证系统
      */
-function themeInit($comment){
-$comment = spam_protection_pre($comment, $post, $result);
+function themeInit($archive) {
+    // 仅在评论场景下执行验证逻辑（避免全局触发）
+    if ($archive->is('single') && $archive->allow('comment')) {
+        // 绑定评论验证回调
+        $archive->commentCallback = function($comment, $post) {
+            return spam_protection_pre($comment, $post);
+        };
+    }
 }
 function spam_protection_math(){
     $num1=rand(1,25);
@@ -136,19 +142,26 @@ function spam_protection_math(){
     echo "<input type=\"hidden\" name=\"num1\" value=\"$num1\">\n";
     echo "<input type=\"hidden\" name=\"num2\" value=\"$num2\">";
 }
-function spam_protection_pre($comment, $post, $result){
-    $sum=$_POST['sum'];
-    switch($sum){
-        case $_POST['num1']+$_POST['num2']:
-        break;
+function spam_protection_pre($comment, $post) {
+    // 检查必要的POST参数是否存在
+    if (!isset($_POST['sum'], $_POST['num1'], $_POST['num2'])) {
+        throw new Typecho_Widget_Exception(_t('对不起: 验证码参数缺失，请<a href="javascript:history.back(-1)">返回</a>重试。', '评论失败'));
+    }
+    $sum = $_POST['sum'];
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    switch ($sum) {
+        case $num1 + $num2:
+            break; // 验证通过
         case null:
-        throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>','评论失败'));
-        break;
+            throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>', '评论失败'));
+            break;
         default:
-        throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。','评论失败'));
+            throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。', '评论失败'));
     }
     return $comment;
 }
+
     /**
      * TinaTheme - ShortCode
      * 短代码
