@@ -160,8 +160,7 @@ template {
   --blockquote-left: #e3e6eb;
   --transparent-text: rgba(0, 0, 0, 0.7);
   --transparent-bg: rgba(0, 0, 0, 0.05);
-  --light-transparent-bg: rgba(255, 255, 255, 0.1);
-  --light-transparent-bg: rgba(255, 255, 255, 0.05);
+  --light-transparent-bg: rgba(0, 0, 0, 0.03);
   --comment-background-color: #fff;
   --submit-color: #fff;
   --comment-body-color: #343a40;
@@ -286,7 +285,7 @@ a.section-button:hover {
   }
 }
 img {
-  display: block;
+  /* display: block; */
   max-width: 100%;
   height: auto;
 }
@@ -1480,12 +1479,22 @@ cite.fn {
   border-radius: 15%;
 }
 .comment-body {
-  padding: 18px 0;
+  padding: 18px;
   position: relative;
   border-radius: 8px;
-  padding-inline: 18px;
-  border: 1px solid #b5b5b5;
+  border: 1px solid var(--border);
   box-shadow: var(--commentslist--color);
+}
+.comment-body.comment-child {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+  background: var(--light-transparent-bg);
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding: 15px;
+}
+.comment-children {
+  margin-top: 15px;
 }
 .comment-body p {
   font-size: 14px;
@@ -1732,4 +1741,39 @@ code::-webkit-scrollbar-thumb {
     width: 2.5rem;
     height: 2.5rem;
   }
+}
+
+/* Comments Pagination */
+.page-navigator {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.page-navigator li {
+  list-style: none;
+  margin: 0;
+}
+.page-navigator li a,
+.page-navigator li span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  background: var(--light-background);
+  color: var(--dark-font-color);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+.page-navigator li.current a,
+.page-navigator li.current span,
+.page-navigator li a:hover {
+  background: var(--link-color);
+  color: #fff;
 }
