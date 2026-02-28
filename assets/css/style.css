@@ -1687,3 +1687,49 @@ code::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   background-clip: content-box;
 }
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  background: var(--link-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition:
+    opacity 0.3s,
+    visibility 0.3s,
+    transform 0.3s,
+    background 0.3s;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--link-color-darker);
+}
+
+@media screen and (max-width: 800px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
