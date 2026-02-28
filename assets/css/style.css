@@ -1777,3 +1777,212 @@ code::-webkit-scrollbar-thumb {
   background: var(--link-color);
   color: #fff;
 }
+
+/* Footer Center Styling */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.footer-custom-html {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.footer-custom-html * {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* --- Table of Contents (TOC) --- */
+.toc-container {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 99;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.toc-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  color: var(--heading-color);
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.toc-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: var(--link-color);
+  margin-right: 8px;
+  border-radius: 2px;
+}
+.toc-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-height: 65vh;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: smooth;
+}
+.toc-list::-webkit-scrollbar {
+  width: 4px;
+}
+.toc-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.toc-container li {
+  margin: 4px 0 !important;
+  line-height: 1.4;
+  position: relative;
+}
+.toc-container .toc-link {
+  color: var(--font-color);
+  text-decoration: none;
+  display: block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  position: relative;
+  border-left: 2px solid transparent;
+}
+.toc-container .toc-link:hover {
+  color: var(--link-color);
+  background: var(--light-background);
+  transform: translateX(4px);
+}
+.toc-container .toc-link.active {
+  color: var(--link-color);
+  background: var(--light-background);
+  border-left-color: var(--link-color);
+  font-weight: 500;
+}
+.toc-level-1 {
+  padding-left: 0;
+}
+.toc-level-2 {
+  padding-left: 12px;
+}
+.toc-level-3 {
+  padding-left: 24px;
+  font-size: 0.85rem;
+}
+.toc-level-4 {
+  padding-left: 36px;
+  font-size: 0.85rem;
+}
+.toc-level-5 {
+  padding-left: 48px;
+  font-size: 0.8rem;
+}
+.toc-level-6 {
+  padding-left: 60px;
+  font-size: 0.75rem;
+}
+
+/* Desktop View */
+@media screen and (min-width: 1300px) {
+  .toc-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    display: block;
+  }
+  .toc-toggle-btn,
+  .toc-overlay {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .toc-container {
+    right: 40px;
+    width: 280px;
+  }
+}
+
+/* Mobile View */
+@media screen and (max-width: 1299px) {
+  .toc-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 260px;
+    max-width: 80vw;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transform-origin: bottom right;
+  }
+  .toc-container.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  .toc-toggle-btn {
+    position: fixed;
+    bottom: 5.5rem; /* Above back-to-top */
+    right: 2rem;
+    display: flex;
+    background: var(--background);
+    color: var(--font-color);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition:
+      background 0.3s,
+      color 0.3s;
+  }
+  .toc-toggle-btn:hover {
+    background: var(--light-background);
+    color: var(--link-color);
+  }
+  @media screen and (max-width: 800px) {
+    .toc-toggle-btn {
+      bottom: 4rem; /* Adjusted for smaller screens */
+      right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .toc-container {
+      bottom: 7rem;
+      right: 1rem;
+    }
+  }
+  .toc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 98;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .toc-overlay.show {
+    display: block;
+    opacity: 1;
+  }
+}
