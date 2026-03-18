@@ -50,7 +50,7 @@ echo $commentClass;
     	<h4 class="article-post"><?php _e('添加新评论'); ?> <small><?php $comments->cancelReply(); ?></small></h4>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" class="comment-form" role="form">
             <?php if($this->user->hasLogin()): ?>
-    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax><?php _e('退出'); ?> &raquo;</a></p>
+    		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax style="text-decoration: underline;"><?php _e('退出'); ?> &raquo;</a></p>
             <?php else: ?>
     		<p class="areatype-1">
                 <label for="author" class="required"><?php _e('称呼'); ?></label>

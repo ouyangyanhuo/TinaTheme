@@ -1108,8 +1108,39 @@ input[type="password"],
   margin-bottom: 4rem;
 }
 
+#search {
+  display: flex;
+  margin-bottom: 4rem;
+}
+
 #search-query {
   width: 100%;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.search-btn {
+  margin-left: 1rem;
+  border: 2px solid var(--link-color);
+  padding: 0.8rem 1.5rem;
+  background: var(--link-color);
+  color: #fff;
+  border-radius: 0.35rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.search-btn:hover {
+  background: var(--link-color-darker);
+  border-color: var(--link-color-darker);
+}
+
+@media screen and (max-width: 799px) {
+  .search-btn {
+    display: none;
+  }
 }
 
 input[type="password"] {
