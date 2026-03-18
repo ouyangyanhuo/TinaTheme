@@ -11,6 +11,7 @@
         <div class="container">
             <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
             <input id="search-query" type="text" id="s" name="s" class="text"  placeholder="Search for anything...">
+            <button type="submit" class="search-btn">搜索</button>
             </form>
             <section>
                 <section>

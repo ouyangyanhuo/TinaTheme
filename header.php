@@ -31,10 +31,10 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= staticUrl('androidstudio.min.css') ?>"/>
     <script src="<?= staticUrl('highlight.min.js') ?>"></script>
-    <script>$(document).on('pjax:complete',function(){hljs.initHighlightingOnLoad()});</script>
     <?php if ($this->options->JqueryControl): ?>
     <script src="<?= staticUrl('jquery.min.js') ?>"></script>
     <?php endif; ?>
+    <script>$(document).on('pjax:complete',function(){hljs.initHighlightingOnLoad()});</script>
     <?php if ($this->options->fancybox): ?>
     <link href="<?= staticUrl('jquery.fancybox.min.css') ?>" rel="stylesheet">
     <script src="<?= staticUrl('jquery.fancybox.min.js') ?>"></script>
@@ -75,3 +75,4 @@
         </div>
     </div>
     </nav>
+
