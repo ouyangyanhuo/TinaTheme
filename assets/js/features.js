@@ -1,4 +1,3 @@
-/*! TinaJS for v2.1.2 | Created by Magneto for TinaTheme| Size about 1.3KB */
 (() => {
   S = (function () {
     let l = document.documentElement,
@@ -43,8 +42,40 @@
         return (d(c, n), n);
       };
     (m(),
-      i.addEventListener("click", () => {
-        m(f());
+      i.addEventListener("click", (e) => {
+        if (typeof document.startViewTransition !== "function") {
+          m(f());
+          return;
+        }
+
+        const x = e.clientX;
+        const y = e.clientY;
+        const endRadius = Math.hypot(
+          Math.max(x, innerWidth - x),
+          Math.max(y, innerHeight - y)
+        );
+
+        const transition = document.startViewTransition(() => {
+          m(f());
+        });
+
+        transition.ready.then(() => {
+          const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ];
+
+          document.documentElement.animate(
+            {
+              clipPath: clipPath
+            },
+            {
+              duration: 400,
+              easing: "ease-in",
+              pseudoElement: "::view-transition-new(root)"
+            }
+          );
+        });
       }));
   })();
 })();

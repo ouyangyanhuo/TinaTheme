@@ -1,4 +1,3 @@
-/*! CodeCopyJs for v2.1.2 | Created by Magneto for TinaTheme| Size about 1.1KB */
 var codeblocks = document.getElementsByTagName("pre");
 for (var i = 0; i < codeblocks.length; i++) {
   currentCode = codeblocks[i];

@@ -71,3 +71,7 @@ TinaTheme 使用 [GPL V3.0](https://github.com/ouyangyanhuo/TinaTheme/blob/main/
 ![](https://picx.zhimg.com/80/v2-d7d0e6115507a8dbb106865cfb4e8b83_720w.jpeg)
 ![](https://picx.zhimg.com/80/v2-4db906b3d9271dbe27340d5d5f3658b8_720w.jpeg)
 ![](https://picx.zhimg.com/80/v2-0d04d14df7fb1d533e95c561a85e071b_720w.jpeg)
+
+## Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=ouyangyanhuo/TinaTheme)](https://github.com/ouyangyanhuo/TinaTheme/graphs/contributors)
