@@ -12,13 +12,12 @@
     <link rel="stylesheet" href="<?= staticUrl('katex.min.css') ?>">
     <script src="<?= staticUrl('katex.min.js') ?>"></script>
     <script src="<?= staticUrl('auto-render.min.js') ?>"></script>
-    <script>renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});</script>
+    <script>window.TinaThemeInitPage && window.TinaThemeInitPage(document);</script>
     <?php endif; ?>
     <!--MathJax-->
     <?php if ($this->options->MathRender == 'MathJax'): ?>
     <script src="<?= staticUrl('tex-mml-chtml.min.js') ?>"></script>
-    <!--MathJax FOR PJAX-->
-    <script type="text/javascript">$(document).ready(function(){MathJax.Hub.Config({tex:{inlineMath:[['$','$'],['\\(','\\)']],}});MathJax.Hub.Queue(["Typeset",MathJax.Hub])});</script>
+    <script>window.TinaThemeInitPage && window.TinaThemeInitPage(document);</script>
     <?php endif; ?>
     <?php if ($this->options->MathRender == 'Close'): ?>
     <?php endif; ?>
@@ -31,7 +30,29 @@
   <link href="<?= staticUrl('nprogress.min.css') ?>" rel="stylesheet">
   <script src="<?= staticUrl('nprogress.min.js') ?>"></script>
   </div>
-  <script>$(document).pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]',{container:'#pjax-load',fragment:'#pjax-load',timeout:8000}).on('pjax:send',function(){NProgress.start()}).on('pjax:complete',function(){NProgress.done();hljs.initHighlightingOnLoad();MathJax.typeset()});$(document).on('pjax:success',function(){$.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>',function(){});$.getScript('<?php $this->options->themeUrl('/assets/js/codecopy.js'); ?>', function() {});$.getScript('<?php $this->options->themeUrl('/assets/js/toc.js'); ?>', function() {})});</script>
+  <script>
+  $(document)
+    .pjax('a[href^="<?php Helper::options()->siteUrl()?>"]:not(a[target="_blank"],a[no-pjax]), a[href^="?"], a[href^="/"]', {
+      container: '#pjax-load',
+      fragment: '#pjax-load',
+      timeout: 8000
+    })
+    .on('pjax:send', function () {
+      NProgress.start();
+    })
+    .on('pjax:complete', function () {
+      NProgress.done();
+      if (window.TinaThemeInitPage) {
+        window.TinaThemeInitPage(document);
+      }
+    });
+
+  $(document).on('pjax:success', function () {
+    $.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>', function () {});
+    $.getScript('<?php $this->options->themeUrl('/assets/js/codecopy.js'); ?>', function () {});
+    $.getScript('<?php $this->options->themeUrl('/assets/js/toc.js'); ?>', function () {});
+  });
+  </script>
 <?php endif; ?>
   <button id="back-to-top" class="back-to-top" title="返回顶部" aria-label="返回顶部">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M13 7.828V20h-2V7.828l-5.364 5.364-1.414-1.414L12 4l7.778 7.778-1.414 1.414L13 7.828z"/></svg>

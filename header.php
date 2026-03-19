@@ -35,7 +35,48 @@
     <?php if ($this->options->JqueryControl): ?>
     <script src="<?= staticUrl('jquery.min.js') ?>"></script>
     <?php endif; ?>
-    <script>$(document).on('pjax:complete',function(){hljs.initHighlightingOnLoad()});</script>
+    <script>
+    window.TinaThemeInitPage = function (root) {
+        var scope = root || document;
+
+        if (window.hljs) {
+            var blocks = scope.querySelectorAll('pre code');
+            blocks.forEach(function (block) {
+                if (block.dataset && block.dataset.hljsDone === 'true') {
+                    return;
+                }
+                if (block.classList.contains('hljs')) {
+                    block.classList.remove('hljs');
+                }
+                hljs.highlightElement(block);
+                if (block.dataset) {
+                    block.dataset.hljsDone = 'true';
+                }
+            });
+        }
+
+        if (window.renderMathInElement) {
+            renderMathInElement(scope, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        } else if (window.MathJax) {
+            if (typeof MathJax.typesetPromise === 'function') {
+                MathJax.typesetPromise([scope]);
+            } else if (typeof MathJax.typeset === 'function') {
+                MathJax.typeset([scope]);
+            }
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        window.TinaThemeInitPage(document);
+    });
+    </script>
     <?php if ($this->options->fancybox): ?>
     <link href="<?= staticUrl('jquery.fancybox.min.css') ?>" rel="stylesheet">
     <script src="<?= staticUrl('jquery.fancybox.min.js') ?>"></script>
