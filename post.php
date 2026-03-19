@@ -6,52 +6,50 @@
             <header class="article-header">
                 <div class="thumb">
                     <div>
-                        <h1><?php $this->title() ?></h1>
+                        <h1><?php $this->title(); ?></h1>
                         <div class="post-meta">
                             <div>
-                            <a>
-                                By <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a>
-                            </a> |
-                            <a>
+                                By <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a> |
                                 <time><?php $this->date('M j, Y'); ?></time> |
-                            </a>
-                            <a>
                                 <?php _e('Category: '); ?><?php $this->category(','); ?>
-                            </a>
-                            <?php if ($this->options->WordCount): ?>
-                            <time> | 共 <?php echo word_count($this->cid); ?> 个字符</time>
-                            <?php endif; ?>
+                                <?php if ($this->options->WordCount): ?>
+                                <span> | 共 <?php echo word_count($this->cid); ?> 个字符</span>
+                                <?php endif; ?>
                             </div>
                             <div class="tags">
                                 <?php $this->tags(', ', true); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
         </article>
+
         <div id="post" class="article-post">
             <?php if ($this->options->fancybox): ?>
             <?php
                 $pattern = '/\<img.*?src\=\"(.*?)\".*?alt\=\"(.*?)\".*?title\=\"(.*?)\"[^>]*>/i';
-                $replacement = '<a href="$1" data-fancybox="gallery" /><img class="lazy" data-original="$1" alt="$2" title="$3"></a>';
+                $replacement = '<a href="$1" data-fancybox="gallery"><img class="lazy" data-original="$1" alt="$2" title="$3"></a>';
                 $content = preg_replace($pattern, $replacement, $this->content);
-                echo getContentTest($content)
+                echo getContentTest($content);
             ?>
             <?php else: ?>
             <?php echo getContentTest($this->content); ?>
             <?php endif; ?>
         </div>
     </div>
+
     <?php if ($this->options->TheComments): ?>
     <div class="container">
         <?php $this->need('comments.php'); ?>
     </div>
     <?php endif; ?>
-    <br><br>
+
     <div class="container">
-        <nav class="flex container suggested">
-            <?php prev_post($this);?>
-            <?php next_post($this);?>
+        <nav class="flex suggested">
+            <?php prev_post($this); ?>
+            <?php next_post($this); ?>
         </nav>
     </div>
+</main>
 <?php $this->need('footer.php'); ?>

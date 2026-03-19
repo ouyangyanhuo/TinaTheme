@@ -10,41 +10,38 @@
 <main>
     <header>
         <div class="container">
-            <h1><?php $this->archiveTitle(array(
-            'category'  =>  _t('分类 %s 下的文章'),
-            'search'    =>  _t('包含关键字 %s 的文章'),
-            'tag'       =>  _t('标签 %s 下的文章'),
-            'author'    =>  _t('%s 发布的文章')
-            ), ''); ?>
-            </h1>
-            <p class="subtitle">这是一个<span class="count">友链</span>页面</p>
+            <h1><?php $this->title(); ?></h1>
+            <p class="subtitle">这是一个 <span class="count">友情链接</span> 页面</p>
         </div>
     </header>
+
     <div class="container">
-        <div class="article-post">
+        <div id="post" class="article-post">
             <?php if ($this->options->fancybox): ?>
             <?php
                 $pattern = '/\<img.*?src\=\"(.*?)\".*?alt\=\"(.*?)\".*?title\=\"(.*?)\"[^>]*>/i';
-                $replacement = '<a href="$1" data-fancybox="gallery" /><img class="lazy" data-original="$1" alt="$2" title="$3"></a>';
+                $replacement = '<a href="$1" data-fancybox="gallery"><img class="lazy" data-original="$1" alt="$2" title="$3"></a>';
                 $content = preg_replace($pattern, $replacement, $this->content);
-                echo getContentTest($this->content);
+                echo getContentTest($content);
             ?>
             <?php else: ?>
             <?php echo getContentTest($this->content); ?>
             <?php endif; ?>
-            <h4>以下是链接</h4>
-            
+
+            <h4>以下是友情链接</h4>
         </div>
-            <div class="linkpage">
-                <ul id="friendsList">
-                  <?php Links(); ?>
-                </ul>
-            </div>
+
+        <div class="linkpage">
+            <ul id="friendsList">
+                <?php Links(); ?>
+            </ul>
+        </div>
     </div>
+
     <?php if ($this->options->TheComments): ?>
-        <div class="container">
-            <?php $this->need('comments.php'); ?>
-        </div>
+    <div class="container">
+        <?php $this->need('comments.php'); ?>
+    </div>
     <?php endif; ?>
-</main><br><br>
+</main>
 <?php $this->need('footer.php'); ?>

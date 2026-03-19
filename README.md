@@ -17,25 +17,38 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 原主题：[https://github.com/WingLim/hugo-tania](https://github.com/WingLim/hugo-tania)
 
 ## 最近版本更新日志
-### [#38](https://github.com/ouyangyanhuo/TinaTheme/pull/38)
 
-- 修复 jQuery 报错
+### 前端交互与 PJAX
 
-### [#39](https://github.com/ouyangyanhuo/TinaTheme/pull/39)
+- 修复启用 PJAX 后切换页面触发 `MathJax is not defined` 的报错问题。
+- 统一页面初始化逻辑，首屏加载与 PJAX 切页后都会重新执行代码高亮和数学公式渲染。
+- 修复直接进入文章页时代码块高亮不生效、只有 PJAX 进入文章页时才生效的问题。
+- 修复 PJAX 切换页面后日间/夜间模式按钮失效的问题。
+- 为暗色模式切换动画增加安全回退，避免 `AbortError: Transition was skipped` 导致按钮无法正常工作。
 
-- 修改暗色模式下滑动条不显示的问题
-- 全局页面右下角添加一个返回顶部的按钮
-- 优化评论区样式
-- 修改page.php注释错误
-- 修改copy按钮z-index层级,避免显示在导航栏之上
-- 添加post页面目录
-- 表格超出屏幕宽度,修改为超出宽度表格内左右滑动
+### 脚本重构
 
-### [#40](https://github.com/ouyangyanhuo/TinaTheme/pull/40)
+- 重构 `assets/js/features.js`，改为可重复初始化的模式，兼容 PJAX 页面切换。
+- 重构 `assets/js/codecopy.js`，避免代码块复制按钮重复插入和重复绑定事件。
+- 重构 `assets/js/toc.js`，避免目录组件、遮罩层、按钮和观察器在 PJAX 下重复创建。
+- 将 PJAX 成功后的脚本处理方式从重复 `getScript` 改为直接调用全局初始化函数。
 
-- 删除失效链接
-- 新增暗色模式切换动画
-- 优化细节
+### 评论区
+
+- 将评论区样式独立拆分到 `assets/css/comments.css` 并在主题中引入。
+- 优化评论区整体布局，补充评论头部、正文、操作区等更清晰的结构类名。
+- 调整评论区视觉风格。
+- 修正评论表单结构，移除不适合同排布局的旧标签结构。
+
+### 页面模板整理
+
+- 整理并优化以下模板文件的结构
+- 修复部分模板中的冗余嵌套结构和不规范 HTML。
+
+### 样式细节
+
+- 调整 footer 区域的超链接样式，移除按钮化效果，使其更接近普通文本链接。
+- 修复友情链接页面和文章页中 fancybox 图片替换标签的结构问题。
 
 ## 功能与特性
 
