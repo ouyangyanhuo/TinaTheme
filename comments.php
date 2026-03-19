@@ -20,19 +20,27 @@ if ($comments->levels > 0) {
 $comments->alt(' comment-odd', ' comment-even');
 echo $commentClass;
 ?>">
-    <div id="<?php $comments->theId(); ?>">
-        <div class="comment-author">
-            <?php $comments->gravatar('40', ''); ?>
-            <cite class="fn"><?php $comments->author(); ?></cite>
+    <div id="<?php $comments->theId(); ?>" class="comment-card">
+        <div class="comment-head">
+            <div class="comment-author">
+                <?php $comments->gravatar('40', ''); ?>
+                <div class="comment-author-info">
+                    <cite class="fn"><?php $comments->author(); ?></cite>
+                </div>
+            </div>
+            <div class="comment-actions">
+                <span class="comment-reply"><?php $comments->reply(); ?></span>
+            </div>
         </div>
         <div class="comment-meta">
             <span class="date"><?php $comments->date('M j, Y'); ?></span>
-            <span class="comment-reply"><?php $comments->reply(); ?></span>
             <?php if ($comments->status == 'waiting') { ?>
                 <span class="comment-reply">您的评论正等待审核！</span>
             <?php } ?>
         </div>
-        <?php $comments->content(); ?>
+        <div class="comment-content">
+            <?php $comments->content(); ?>
+        </div>
     </div>
 <?php if ($comments->children) { ?>
     <div class="comment-children box">
@@ -52,6 +60,7 @@ echo $commentClass;
             <?php if($this->user->hasLogin()): ?>
     		<p><?php _e('登录身份: '); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" no-pjax style="text-decoration: underline;"><?php _e('退出'); ?> &raquo;</a></p>
             <?php else: ?>
+            <div class="comment-form-grid">
     		<p class="areatype-1">
                 <label for="author" class="required"><?php _e('称呼'); ?></label>
     			<input type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" required />
@@ -64,20 +73,23 @@ echo $commentClass;
                 <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
     			<input type="text" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
     		</p>
+            </div>
             <?php endif; ?>
-    		<p>
+    		<p class="comment-form-textarea">
                 <label for="textarea" class="required"><?php _e('内容'); ?></label>
                 <textarea rows="8" cols="50" name="text" id="comment" class="textarea" required ><?php $this->remember('text'); ?></textarea>
             </p>
+            <div class="comment-form-footer">
             <?php if ($this->options->TheVerification): ?>
-            <p style="float:left">
+            <p class="comment-form-verification">
                 <?php spam_protection_math();?>
             </p>
             <?php endif; ?>
-    		<p style="float:right">
+    		<p class="comment-form-actions">
                 <button type="reset" id="submit" class="submit"><?php _e('清空内容'); ?></button>
                 <button type="submit" id="submit" class="submit"><?php _e('提交评论'); ?></button>
             </p>
+            </div>
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
     	</form>

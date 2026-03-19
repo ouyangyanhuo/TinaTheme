@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/cursor.css'); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/style.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('/assets/css/comments.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= staticUrl('androidstudio.min.css') ?>"/>
     <script src="<?= staticUrl('highlight.min.js') ?>"></script>
     <?php if ($this->options->JqueryControl): ?>
