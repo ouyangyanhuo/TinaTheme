@@ -11,9 +11,8 @@
   padding: 1.5rem;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background:
-    linear-gradient(180deg, var(--background) 0%, var(--light-background) 100%);
-  box-shadow: var(--commentslist--color);
+  background: var(--background);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 #comments .article-post,
@@ -45,15 +44,13 @@ ol.comment-list {
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--comment-background-color);
-  box-shadow: var(--commentslist--color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
   transition:
-    transform 0.2s ease,
     border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color 0.2s ease;
 }
 
 .comment-body:hover {
-  transform: translateY(-2px);
   border-color: rgba(230, 181, 74, 0.45);
 }
 
@@ -95,7 +92,7 @@ ol.comment-list {
   height: 44px;
   border-radius: 14px;
   object-fit: cover;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 .comment-author-info {
@@ -225,6 +222,12 @@ ol.comment-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
+  align-items: end;
+}
+
+.comment-form-field,
+.comment-form-textarea {
+  min-width: 0;
 }
 
 .comment-form p {
@@ -282,18 +285,27 @@ ol.comment-list {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .comment-form-verification {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
   color: var(--comment-meta);
+}
+
+.comment-form-verification > * {
+  margin: 0;
 }
 
 .comment-form-actions {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   gap: 0.75rem;
   margin-left: auto;
+  flex: 0 0 auto;
 }
 
 .comment-form .submit,
@@ -363,6 +375,10 @@ ol.comment-list {
   .comment-form-footer,
   .comment-form-actions {
     width: 100%;
+  }
+
+  .comment-form-footer {
+    flex-wrap: wrap;
   }
 
   .comment-form-actions {
