@@ -1,29 +1,93 @@
-var codeblocks = document.getElementsByTagName("pre");
-for (var i = 0; i < codeblocks.length; i++) {
-  currentCode = codeblocks[i];
-  currentCode.style = "position: relative;";
-  var copy = document.createElement("div");
-  copy.style =
-    "position:absolute;color:black;right:4px;top:4px;background-color:#f1f4f8;padding:2px 8px;margin:8px;border-radius:4px;cursor:pointer;z-index:1;box-shadow:rgb(255 255 255 / 14%) 0px 2px 4px;";
-  copy.innerHTML = "Copy";
-  currentCode.appendChild(copy);
-}
-for (var i = 0; i < codeblocks.length; i++) {
-  !(function (i) {
-    function copyArticle(event) {
-      const range = document.createRange();
-      range.selectNode(codeblocks[i].childNodes[0]);
-      const selection = window.getSelection();
-      if (selection.rangeCount > 0) selection.removeAllRanges();
-      selection.addRange(range);
-      document.execCommand("copy");
-      codeblocks[i].childNodes[1].innerHTML = "Copy Success";
-      setTimeout(function () {
-        codeblocks[i].childNodes[1].innerHTML = "Copy";
-      }, 3000);
-      if (selection.rangeCount > 0) selection.removeAllRanges();
-      0;
+(function () {
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
     }
-    codeblocks[i].childNodes[1].addEventListener("click", copyArticle, false);
-  })(i);
-}
+
+    return new Promise(function (resolve, reject) {
+      try {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.top = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function createCopyButton() {
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "code-copy-button";
+    button.textContent = "Copy";
+    button.setAttribute("aria-label", "Copy code");
+    button.style.position = "absolute";
+    button.style.right = "12px";
+    button.style.top = "12px";
+    button.style.padding = "4px 10px";
+    button.style.border = "1px solid rgba(0, 0, 0, 0.08)";
+    button.style.borderRadius = "999px";
+    button.style.backgroundColor = "#f1f4f8";
+    button.style.color = "#222";
+    button.style.cursor = "pointer";
+    button.style.zIndex = "2";
+    button.style.boxShadow = "none";
+    return button;
+  }
+
+  function bindCopyButton(pre, button, code) {
+    if (button.dataset.bound === "true") {
+      return;
+    }
+
+    button.dataset.bound = "true";
+    button.addEventListener("click", function () {
+      var text = code ? code.innerText : pre.innerText;
+      copyText(text)
+        .then(function () {
+          button.textContent = "Copy Success";
+          window.clearTimeout(button._copyTimer);
+          button._copyTimer = window.setTimeout(function () {
+            button.textContent = "Copy";
+          }, 2000);
+        })
+        .catch(function () {
+          button.textContent = "Copy Failed";
+          window.clearTimeout(button._copyTimer);
+          button._copyTimer = window.setTimeout(function () {
+            button.textContent = "Copy";
+          }, 2000);
+        });
+    });
+  }
+
+  window.TinaThemeInitCodeCopy = function (scope) {
+    var root = scope || document;
+    var blocks = root.querySelectorAll("pre");
+
+    blocks.forEach(function (pre) {
+      if (!pre.style.position) {
+        pre.style.position = "relative";
+      }
+
+      var code = pre.querySelector("code");
+      var button = pre.querySelector(".code-copy-button");
+
+      if (!button) {
+        button = createCopyButton();
+        pre.appendChild(button);
+      }
+
+      bindCopyButton(pre, button, code);
+    });
+  };
+
+  window.TinaThemeInitCodeCopy(document);
+})();

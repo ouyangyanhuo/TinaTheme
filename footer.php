@@ -4,7 +4,7 @@
             <?php $this->options->FooterHTML() ?>
         <?php endif; ?>
         <nav class="footer-links">
-            <p>Theme:<a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</p>
+            <p><a href="https://fmcf.cc" target="_blank">TinaTheme</a> By Magneto</p>
         </nav>
     </section>
     <!--KaTeX-->
@@ -48,9 +48,15 @@
     });
 
   $(document).on('pjax:success', function () {
-    $.getScript('<?php $this->options->themeUrl('/assets/js/features.js'); ?>', function () {});
-    $.getScript('<?php $this->options->themeUrl('/assets/js/codecopy.js'); ?>', function () {});
-    $.getScript('<?php $this->options->themeUrl('/assets/js/toc.js'); ?>', function () {});
+    if (window.TinaThemeInitFeatures) {
+      window.TinaThemeInitFeatures(document);
+    }
+    if (window.TinaThemeInitCodeCopy) {
+      window.TinaThemeInitCodeCopy(document);
+    }
+    if (window.TinaThemeInitTOC) {
+      window.TinaThemeInitTOC();
+    }
   });
   </script>
 <?php endif; ?>
