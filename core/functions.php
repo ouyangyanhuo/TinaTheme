@@ -25,6 +25,9 @@ function FindContents($val = NULL, $order = 'order', $sort = 'a', $publish = NUL
 function compressHtml($html_source)
 {
     $chunks = preg_split('/(<!--<nocompress>-->.*?<!--<\/nocompress>-->|<nocompress>.*?<\/nocompress>|<pre.*?\/pre>|<textarea.*?\/textarea>|<script.*?\/script>)/msi', $html_source, -1, PREG_SPLIT_DELIM_CAPTURE);
+    if (!is_array($chunks)) {
+        return $html_source;
+    }
     $compress = '';
     foreach ($chunks as $c) {
         if (strtolower(substr($c, 0, 19)) == '<!--<nocompress>-->') {
@@ -47,13 +50,20 @@ function compressHtml($html_source)
                         continue;
                     }
                     $chars = preg_split('//', $tmp, -1, PREG_SPLIT_NO_EMPTY);
+                    if (!is_array($chars)) {
+                        $c .= $tmp;
+                        continue;
+                    }
                     $is_quot = $is_apos = false;
+                    $total = count($chars);
                     foreach ($chars as $key => $char) {
-                        if ($char == '"' && $chars[$key - 1] != '\\' && !$is_apos) {
+                        $prev = ($key > 0) ? $chars[$key - 1] : '';
+                        $next = ($key + 1 < $total) ? $chars[$key + 1] : '';
+                        if ($char == '"' && $prev != '\\' && !$is_apos) {
                             $is_quot = !$is_quot;
-                        } else if ($char == '\'' && $chars[$key - 1] != '\\' && !$is_quot) {
+                        } else if ($char == '\'' && $prev != '\\' && !$is_quot) {
                             $is_apos = !$is_apos;
-                        } else if ($char == '/' && $chars[$key + 1] == '/' && !$is_quot && !$is_apos) {
+                        } else if ($char == '/' && $next == '/' && !$is_quot && !$is_apos) {
                             $tmp = substr($tmp, 0, $key);
                             break;
                         }
@@ -112,7 +122,12 @@ function Links($short = false)
     if ($list) {
         $list = explode("\r\n", $list);
         foreach ($list as $val) {
-            list($name, $url, $description, $logo) = explode(',', $val);
+            $val = trim($val);
+            if ($val === '') {
+                continue;
+            }
+            $item = array_pad(explode(',', $val, 4), 4, '');
+            list($name, $url, $description, $logo) = $item;
             if ($short) {
                 $link .= '<li><a target="_blank" rel="nofollow" href="' . $url . '"><img src="' . $logo . '"><div class="linkpage_links">@' . $name . '</div><p>' . $description . '</p></a></li>' . "\n";
             } else {
@@ -147,18 +162,19 @@ function spam_protection_pre($comment, $post) {
     if (!isset($_POST['sum'], $_POST['num1'], $_POST['num2'])) {
         throw new Typecho_Widget_Exception(_t('对不起: 验证码参数缺失，请<a href="javascript:history.back(-1)">返回</a>重试。', '评论失败'));
     }
-    $sum = $_POST['sum'];
-    $num1 = $_POST['num1'];
-    $num2 = $_POST['num2'];
-    switch ($sum) {
-        case $num1 + $num2:
-            break; // 验证通过
-        case null:
-            throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>', '评论失败'));
-            break;
-        default:
-            throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。', '评论失败'));
+    $sum = trim((string) $_POST['sum']);
+    $num1 = (int) $_POST['num1'];
+    $num2 = (int) $_POST['num2'];
+
+    if ($sum === '') {
+        throw new Typecho_Widget_Exception(_t('对不起: 请输入验证码。<a href="javascript:history.back(-1)">返回上一页</a>', '评论失败'));
     }
+
+    // 严格整型比较
+    if (!preg_match('/^\d+$/', $sum) || (int) $sum !== $num1 + $num2) {
+        throw new Typecho_Widget_Exception(_t('对不起: 验证码错误，请<a href="javascript:history.back(-1)">返回</a>重试。', '评论失败'));
+    }
+
     return $comment;
 }
 
@@ -167,26 +183,22 @@ function spam_protection_pre($comment, $post) {
      * 短代码
      */
 function getContentTest($content) {
+    $content = (string) $content;
+    // 统一封装：preg_replace 失败返回 null，直接传入下一次调用会触发类型错误
+    $apply = function ($pattern, $replacement, $subject) {
+        $result = preg_replace($pattern, $replacement, $subject);
+        return $result === null ? $subject : $result;
+    };
     /* MARK功能 */
-    $pattern = '/\[(mark)\](.*?)\[\s*\/\1\s*\]/';
-    $replacement = '<mark>$2</mark>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $content = $apply('/\[(mark)\](.*?)\[\s*\/\1\s*\]/', '<mark>$2</mark>', $content);
     /* 提示功能 */
-    $pattern = '/\[(info)\](.*?)\[\s*\/\1\s*\]/';
-    $replacement = '<div class="alert info">$2</div>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $content = $apply('/\[(info)\](.*?)\[\s*\/\1\s*\]/', '<div class="alert info">$2</div>', $content);
     /* Keybord */
-    $pattern = '/\[(kbd)\](.*?)\[\s*\/\1\s*\]/';
-    $replacement = '<kbd>$2</kbd>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $content = $apply('/\[(kbd)\](.*?)\[\s*\/\1\s*\]/', '<kbd>$2</kbd>', $content);
     /* 上标 */
-    $pattern = '/\[(sup)\](.*?)\[\s*\/\1\s*\]/';
-    $replacement = '<sup>$2</sup>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $content = $apply('/\[(sup)\](.*?)\[\s*\/\1\s*\]/', '<sup>$2</sup>', $content);
     /* 下标 */
-    $pattern = '/\[(sub)\](.*?)\[\s*\/\1\s*\]/';
-    $replacement = '<sub>$2</sub>';
-    $content = preg_replace($pattern, $replacement, $content);
+    $content = $apply('/\[(sub)\](.*?)\[\s*\/\1\s*\]/', '<sub>$2</sub>', $content);
     /* 返回值 */
     return $content;
 }
@@ -195,15 +207,59 @@ function getContentTest($content) {
      * 字数统计
      */
 function word_count($cid){
-	$db = Typecho_Db::get ();
-	$rs = $db->fetchRow($db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?',$cid)->order ('table.contents.cid',Typecho_Db::SORT_ASC)->limit (1));
-	return mb_strlen($rs['text'], 'UTF-8');
+    $db = Typecho_Db::get();
+    $rs = $db->fetchRow($db->select('table.contents.text')->from('table.contents')->where('table.contents.cid=?', $cid)->order('table.contents.cid', Typecho_Db::SORT_ASC)->limit(1));
+    if (empty($rs) || !isset($rs['text'])) {
+        return 0;
+    }
+    return mb_strlen((string) $rs['text'], 'UTF-8');
 }
     /**
      * TinaTheme - Next or Previous Post
      * 上一篇文章、下一篇文章输出修订
      * 为了在 a 标签的内容中同时兼容文章标题和其它内容所写
      */
+function TinaTheme_sibling_permalink(array $content)
+{
+    $options = Helper::options();
+    $type = isset($content['type']) ? $content['type'] : 'post';
+
+    // 页面：siteUrl/slug + rewrite 后缀
+    if ($type === 'page') {
+        $slug = isset($content['slug']) ? $content['slug'] : '';
+        return rtrim((string) $options->siteUrl, '/') . '/' . $slug . (isset($options->rewrite) ? $options->rewrite : '');
+    }
+
+    // 文章：优先交给路由生成，失败时按 cid 兜底
+    if (class_exists('Typecho_Router')) {
+        try {
+            $url = Typecho_Router::url('post', $content, isset($options->index) ? $options->index : $options->siteUrl);
+            if (!empty($url)) {
+                return $url;
+            }
+        } catch (Exception $e) {
+            // 路由未注册时静默回退
+        }
+    }
+
+    $cid = isset($content['cid']) ? $content['cid'] : 0;
+    $base = !empty($options->rewrite)
+        ? rtrim((string) $options->siteUrl, '/') . '/archives/'
+        : rtrim((string) $options->siteUrl, '/') . '/index.php/archives/';
+
+    return $base . $cid . (isset($options->rewrite) ? $options->rewrite : '');
+}
+
+function TinaTheme_sibling_link($permalink, $title, $rel, $label)
+{
+    $permalink = (string) $permalink;
+    $title = (string) $title;
+
+    echo '<a rel="' . $rel . '" href="' . htmlspecialchars($permalink, ENT_QUOTES, 'UTF-8') . '" title="'
+        . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '"><span>' . $label . '</span>'
+        . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</a>';
+}
+
 function prev_post($archive) {
     $db = Typecho_Db::get();
     $content = $db->fetchRow($db->select()
@@ -214,15 +270,14 @@ function prev_post($archive) {
             ->where('table.contents.password IS NULL')
             ->order('table.contents.created', Typecho_Db::SORT_DESC)
             ->limit(1));
-    if ($content) {
-        $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
-        echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Previous</span>' . $content['title'] . '</a>';
+    if (empty($content)) {
+        return;
     }
-    else {
-        echo '';
-    }
+
+    $permalink = TinaTheme_sibling_permalink($content);
+    TinaTheme_sibling_link($permalink, isset($content['title']) ? $content['title'] : '', 'prev', 'Previous');
 }
-    
+
 function next_post($archive) {
     $db = Typecho_Db::get();
     $content = $db->fetchRow($db->select()
@@ -233,13 +288,12 @@ function next_post($archive) {
             ->where('table.contents.password IS NULL')
             ->order('table.contents.created', Typecho_Db::SORT_ASC)
             ->limit(1));
-    if ($content) {
-        $content = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($content);
-        echo '<a rel="next" href="' . $content['permalink'] . '" title="' . $content['title'] . '"><span>Next</span>' . $content['title'] . '</a>';
+    if (empty($content)) {
+        return;
     }
-    else {
-        echo '';
-    }
+
+    $permalink = TinaTheme_sibling_permalink($content);
+    TinaTheme_sibling_link($permalink, isset($content['title']) ? $content['title'] : '', 'next', 'Next');
 }
     /**
      * TinaTheme - CDN Supports

@@ -35,11 +35,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     $year = $year_tmp;
                     $output .= '<h2>' . date('Y', $archives->created) . '</h2>';
                 }
-                if ($this->options->PjaxOption && $archives->hidden) {
-                    $output .= '<div class="post"><a href="' . $archives->permalink . '"><div class="post-row"><time>' . date('M j', $archives->created) . '</time><h3>'. $archives->title . '</h3></div></a></div>';
-                } else {
-                    $output .= '<div class="post"><a href="' . $archives->permalink . '"><div class="post-row"><time>' . date('M j', $archives->created) . '</time><h3>'. $archives->title . '</h3></div></a></div>';
-                }
+                $output .= '<div class="post"><a href="' . $archives->permalink . '"><div class="post-row"><time>' . date('M j', $archives->created) . '</time><h3>' . $archives->title . '</h3></div></a></div>';
             }
             $output .= '</section>';
             echo $output;

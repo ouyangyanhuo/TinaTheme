@@ -66,8 +66,8 @@
 </body>
 <?php if ($this->options->cursor): ?>
 <?php
-$ua = $_SERVER['HTTP_USER_AGENT'];
-$is_mobile = preg_match('/(iPhone|iPad|iPod|Android|BlackBerry|Windows Phone)/i', $ua);
+$ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+$is_mobile = $ua !== '' && preg_match('/(iPhone|iPad|iPod|Android|BlackBerry|Windows Phone)/i', $ua);
 $mobile = $is_mobile ? true : false;
 if ($mobile == false) {
    echo '<script src="';
