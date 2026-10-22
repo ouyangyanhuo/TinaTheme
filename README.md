@@ -20,7 +20,7 @@ _Haku，是 Tina 小姐最爱的喵喵，它在这里守卫着 Tina 小姐_
 
 ### 重大安全更新
 
-- 为解决 CVE-2026-111497 高危漏洞，Tina 小姐已经全面支持 php8.5及更高版本
+- 为解决 CVE-2026-109618 & CVE-2026-109619 高危漏洞，Tina 小姐已经全面支持 php8.5及更高版本
 - 数据库查询结果增加数组判断，POST type 参数增加 isset 检查，避免空值访问
 - compressHtml 增加 preg_split 返回值判断，字符遍历防止越界，Links 支持空行并补齐字段，验证码改为严格整型校验，getContentTest 封装 preg_replace 空值回退，word_count 与上下篇链接增加空值保护并抽取公共方法
 - UA 获取增加 isset 判断
